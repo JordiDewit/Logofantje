@@ -11,5 +11,9 @@
 
   <ItemGroup>
     <None Remove="NSwag.AspNetCore" />
+    <None Remove="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
