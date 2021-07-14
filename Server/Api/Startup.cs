@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.Data;
+using Api.Data.Repositories;
+using Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,15 +32,16 @@ namespace Api
         {
 
             services.AddControllers();
+            services.AddDbContext<MateriaalContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("MateriaalContext")));
+            services.AddScoped<MateriaalDataInitializer>();
+            services.AddScoped<IMateriaalRepository, MateriaalRepository>();
             services.AddSwaggerDocument();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
-            });
+            services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MateriaalDataInitializer mdi)
         {
             if (env.IsDevelopment())
             {
@@ -55,6 +60,8 @@ namespace Api
             {
                 endpoints.MapControllers();
             });
+
+            mdi.InitializeData();
         }
     }
 }
