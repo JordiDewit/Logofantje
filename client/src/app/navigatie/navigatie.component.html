@@ -1,0 +1,17 @@
+<mat-toolbar style="background-color:white; padding: 50px; margin:0px">
+    <button (click)="sidenav_opened = !sidenav_opened">
+        <mat-icon>menu</mat-icon>
+    </button> 
+    <img src="assets/images/Logof.png" width="100px" style="margin-left: 40%;">
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav [(opened)]="sidenav_opened" #sidenav mode="side">
+        <mat-nav-list>
+            <mat-list-item>Welkom</mat-list-item>
+            <mat-list-item>Yna Bauwens</mat-list-item>
+            <mat-list-item>Therapiemateriaal</mat-list-item>
+            <mat-list-item>Favorieten</mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>
