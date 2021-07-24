@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MATERIAAL } from '../mock-materiaal';
 
 @Component({
   selector: 'app-materiaal-list',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MateriaalListComponent implements OnInit {
 
+  private _materiaal = MATERIAAL;
+
   constructor() { }
 
+  get materiaal() {
+    return this._materiaal;
+  }
   ngOnInit(): void {
   }
 

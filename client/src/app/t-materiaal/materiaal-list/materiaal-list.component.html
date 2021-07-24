@@ -1,1 +1,16 @@
-<p>materiaal-list works!</p>
+<div class="container" fxLayout="column" fxLayoutGap="2%">
+            <div 
+            fxLayout="row wrap"
+            fxLayout.xs="column"
+            fxLayoutGap="0.5%"
+            fxLayoutAlign="start"
+            >
+                <div
+                class="materiaal"
+                *ngFor="let mat of materiaal"
+                fxFlex="0 0 calc(25%-0.5%)"
+                fxFlex.xs="100%">
+                    <app-materiaal [mat] = "mat"></app-materiaal>
+                </div>
+            </div>
+</div>

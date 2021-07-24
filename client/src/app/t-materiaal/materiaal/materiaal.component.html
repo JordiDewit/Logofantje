@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ mat.naam }}</mat-card-title>
+        <mat-card-subtitle>{{mat.datum | date: 'shortdate'}}</mat-card-subtitle>
+    </mat-card-header>
+        <mat-card-content>
+            <img src={{mat.foto}} height="130px">
+            <h4>{{ mat.pdfLink }}</h4>
+        </mat-card-content>
+</mat-card>

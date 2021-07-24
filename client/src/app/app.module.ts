@@ -12,13 +12,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-list.component';
+import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     routingComponents,
-    MateriaalListComponent
+    MateriaalListComponent,
+    MateriaalComponent
   ],
   imports: [
     BrowserModule,
