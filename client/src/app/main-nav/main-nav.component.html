@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Het menu</mat-toolbar>
+    <mat-toolbar><img src="./assets/images/oli.PNG" height="70px"></mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/home">Logofantje<mat-icon style="margin-left: 5px;">home</mat-icon></a>
       <a mat-list-item href="#">Yna<mat-icon style="margin-left: 5px;">accessibility</mat-icon></a>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MATERIAAL } from '../mock-materiaal';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MateriaalDataService } from '../materiaal-data.service';
 
 @Component({
   selector: 'app-materiaal-list',
@@ -8,12 +9,22 @@ import { MATERIAAL } from '../mock-materiaal';
 })
 export class MateriaalListComponent implements OnInit {
 
-  private _materiaal = MATERIAAL;
 
-  constructor() { }
+  filterItems =  [
+    { value: "Zomer", checked : false },
+    { value: "Herfst" , checked : false },
+    { value : "Alles", checked : true }
+  ];
 
-  get materiaal() {
-    return this._materiaal;
+  constructor(private _materiaalDataService : MateriaalDataService) {}
+  
+
+  get materiaal(){
+    return this._materiaalDataService.materiaal;
+  }
+
+  checked(){
+    return this.filterItems.filter(item => { return item.checked; });
   }
   ngOnInit(): void {
   }

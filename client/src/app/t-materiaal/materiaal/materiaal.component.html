@@ -1,9 +1,11 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>{{ mat.naam }}</mat-card-title>
-        <mat-card-subtitle>{{mat.datum | date: 'shortdate'}}</mat-card-subtitle>
+        <mat-card-subtitle>Toegevoegd op {{mat.datum | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
     </mat-card-header>
         <mat-card-content>
+            <h3>Thema: {{ mat.thema }}</h3>
+            <h3>Leergebied: {{mat.leergebied}} </h3>
             <img src={{mat.foto}} height="130px">
             <h4>{{ mat.pdfLink }}</h4>
         </mat-card-content>

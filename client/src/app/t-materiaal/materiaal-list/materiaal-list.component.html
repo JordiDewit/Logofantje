@@ -1,4 +1,35 @@
 <div class="container" fxLayout="column" fxLayoutGap="2%">
+    <mat-card>
+       <mat-card-header>
+           <h2>Filter op thema!</h2>
+       </mat-card-header>
+        <mat-card-content>
+            <div class="form form-inline">
+                <div *ngFor="let filterItem of filterItems; let i = index;" class="form-check" style="padding-right: 20px;">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" [(ngModel)] = "filterItem.checked" [value]="filterItem.value"> {{ filterItem.value }}
+                    </label>
+                </div>
+            </div>
+
+            <pre>Selected items: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></pre>
+           <!-- <section class="alles">
+                <mat-checkbox>Alles</mat-checkbox>
+            </section>
+            <section class="thema" [formGroup]="themas">
+                <mat-checkbox formControlName="zomer">Zomer</mat-checkbox>
+                <mat-checkbox formControlerName="winter">Winter</mat-checkbox>
+                <mat-checkbox formControlName="herfst">Herfst</mat-checkbox>
+                <mat-checkbox formControlName="lente">Lente</mat-checkbox>
+                <mat-checkbox formControlName="pasen">Pasen</mat-checkbox>
+                <mat-checkbox formControlName="kerstmis">Kerstmis</mat-checkbox>
+                <mat-checkbox formControlName="sinterklaas">Sinterklaas</mat-checkbox>
+            </section>
+            <section [formGroup] = "themas"> 
+                <h4>{{ themas.value | json }}</h4>
+            </section> --> 
+        </mat-card-content>
+    </mat-card>
             <div 
             fxLayout="row wrap"
             fxLayout.xs="column"
@@ -7,7 +38,7 @@
             >
                 <div
                 class="materiaal"
-                *ngFor="let mat of materiaal"
+                *ngFor="let mat of materiaal | materiaalFilter: { thema: ''} : checked()"
                 fxFlex="0 0 calc(25%-0.5%)"
                 fxFlex.xs="100%">
                     <app-materiaal [mat] = "mat"></app-materiaal>

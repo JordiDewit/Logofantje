@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-list.component';
 import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component';
+import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component'
     MainNavComponent,
     routingComponents,
     MateriaalListComponent,
-    MateriaalComponent
+    MateriaalComponent,
+    MateriaalFilterPipe
   ],
   imports: [
     BrowserModule,
