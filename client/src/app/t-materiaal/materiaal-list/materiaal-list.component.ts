@@ -17,7 +17,9 @@ export class MateriaalListComponent implements OnInit {
     { value: "Winter", checked : false },
     { value: "Pasen", checked: false },
     { value: "Sinterklaas", checked: false},
-    { value: "Kerstmis", checked : false }
+    { value: "Kerstmis", checked : false },
+    { value: "Halloween", checked : false},
+    { value: "Valentijn", checked : false}
   ];
 
   constructor(private _materiaalDataService : MateriaalDataService) {}
