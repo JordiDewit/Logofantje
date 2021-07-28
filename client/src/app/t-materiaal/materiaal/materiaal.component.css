@@ -1,20 +1,25 @@
-mat-card{
-    margin-top: 10px;
-}
+
 button{
     padding: 0px;  
 }
 mat-card{
-    max-width: 450px;
+    margin-top: 10px;
 }
 h2{
     border-bottom: 1px solid lightgrey;
 }
+button{
+    border: none;
+    background-color:white;
+}
 .mat-icon{
 font-size: 30px;
+padding-right: 10px;
+margin-left: 10px;
 }
 .mat-icon:hover{
     color: lightgray;
+    cursor: pointer;
 }
 .download{
     margin-left: 38%;

@@ -1,4 +1,5 @@
-<div class="container" fxLayout="column" fxLayoutGap="2%">
+<!--<div class="container" fxLayout="column" fxLayoutGap="2%">-->
+    <div class="container">
     <mat-card>
            <h2>Filter op thema!</h2>
         <mat-card-content>
@@ -12,17 +13,13 @@
             <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
         </mat-card-content>
     </mat-card>
-            <div 
-            fxLayout="row wrap"
-            fxLayout.xs="column"
-            fxLayoutGap="0.5%"
-            fxLayoutAlign="start"
-            >
+            <div fxLayout="row wrap"fxLayoutGap="20px grid">
                 <div
                 class="materiaal"
-                *ngFor="let mat of materiaal | materiaalFilter: { thema: ''} : checked()"
-                fxFlex="0 0 calc(25%-0.5%)"
-                fxFlex.xs="100%">
+                fxFlex="25%"
+                fxFlex.xs="100%"
+                fxFlex.sm="33%"
+                *ngFor="let mat of materiaal | materiaalFilter: { thema: ''} : checked()">
                     <app-materiaal [mat] = "mat"></app-materiaal>
                 </div>
             </div>

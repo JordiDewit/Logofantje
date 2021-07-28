@@ -17,7 +17,7 @@
         <h3>{{ mat.leergebied }}</h3>
         <h2>De start PDF</h2>
         <div class="download">
-        <h3><mat-icon class="pdfDownload">picture_as_pdf</mat-icon></h3>
+        <a (click)="downloadPdf('./assets/Het-varkenspel.pdf', 'Varkenspel')"><mat-icon class="pdfDownload">picture_as_pdf</mat-icon></a>
     </div>
     </mat-card-content>
 </mat-card>
