@@ -44,7 +44,8 @@ namespace Api.Controllers
                 Naam = mat.Naam,
                 Thema = mat.Thema,
                 Leergebied = mat.Leergebied,
-                Foto = mat.Foto
+                Foto = mat.Foto,
+                Pdf = mat.Pdf
             };
 
             _materiaalRepo.Add(matToCreate);

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Api.Extensions;
+using Microsoft.AspNetCore.Http;
 
 namespace Api.Models
 {
@@ -15,7 +17,9 @@ namespace Api.Models
         [Required]
         public string Leergebied { get; set; }
         [Required]
-        public string Foto { get; set; }
+        public byte[] Foto { get; set; }
+        [Required]
+        public byte[] Pdf { get; set; }
         #endregion
 
         #region Constructors
@@ -23,13 +27,17 @@ namespace Api.Models
         {
             Aangemaakt = DateTime.Now;
         }
-        public Therapiemateriaal(string naam, string thema, string leergebied, string foto ) : this()
+        public Therapiemateriaal(string naam, string thema, string leergebied, byte[] foto, byte[] pdf ) : this()
         {
             Naam = naam;
             Thema = thema;
             Leergebied = leergebied;
             Foto = foto;
+            Pdf = pdf;
         }
+        #endregion
+        #region Methods
+        public string ImageSource => this.Foto.ToImageSource();
         #endregion
     }
 }

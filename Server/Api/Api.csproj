@@ -20,6 +20,8 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Controllers\" />
     <None Remove="DTOs\" />
+    <None Remove="Extensions\" />
+    <None Remove="Data\Mappers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -27,5 +29,29 @@
     <Folder Include="Data\Repositories\" />
     <Folder Include="Controllers\" />
     <Folder Include="DTOs\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\files\" />
+    <Folder Include="wwwroot\files\pdf\" />
+    <Folder Include="wwwroot\images\tm\" />
+    <Folder Include="Data\Mappers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\files\pdf\Het-varkenspel.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\images\tm\tm1.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\files\" />
+    <Content Remove="wwwroot\files\pdf\" />
+    <Content Remove="wwwroot\files\pdf\Het-varkenspel.pdf" />
+    <Content Remove="wwwroot\images\tm\" />
+    <Content Remove="wwwroot\images\tm\tm1.JPG" />
   </ItemGroup>
 </Project>
