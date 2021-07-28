@@ -1,12 +1,23 @@
+
 <mat-card>
     <mat-card-header>
         <mat-card-title>{{ mat.naam }}</mat-card-title>
-        <mat-card-subtitle>Toegevoegd op {{mat.datum | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
+        <mat-card-subtitle>Toegevoegd op {{ mat.datum | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
     </mat-card-header>
-        <mat-card-content>
-            <h3>Thema: {{ mat.thema }}</h3>
-            <h3>Leergebied: {{mat.leergebied}} </h3>
-            <img src={{mat.foto}} height="130px">
-            <h4>{{ mat.pdfLink }}</h4>
-        </mat-card-content>
+    <mat-card-actions>
+        <button mat-button><mat-icon>favorite</mat-icon></button>
+        <button mat-button><mat-icon>edit</mat-icon></button>
+        <button mat-button><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+    <img mat-card-image src={{mat.foto}} alt="Foto van het materiaal">
+    <mat-card-content>
+        <h2>Thema</h2>
+        <h3>{{ mat.thema }}</h3>
+        <h2>Leergebied</h2>
+        <h3>{{ mat.leergebied }}</h3>
+        <h2>De start PDF</h2>
+        <div class="download">
+        <h3><mat-icon class="pdfDownload">picture_as_pdf</mat-icon></h3>
+    </div>
+    </mat-card-content>
 </mat-card>

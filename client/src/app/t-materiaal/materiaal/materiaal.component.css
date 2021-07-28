@@ -1,3 +1,24 @@
 mat-card{
     margin-top: 10px;
 }
+button{
+    padding: 0px;  
+}
+mat-card{
+    max-width: 450px;
+}
+h2{
+    border-bottom: 1px solid lightgrey;
+}
+.mat-icon{
+font-size: 30px;
+}
+.mat-icon:hover{
+    color: lightgray;
+}
+.download{
+    margin-left: 38%;
+}
+.pdfDownload {
+    font-size: 80px;
+}
