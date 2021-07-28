@@ -13,7 +13,11 @@ export class MateriaalListComponent implements OnInit {
   filterItems =  [
     { value: "Zomer", checked : false },
     { value: "Herfst" , checked : false },
-    { value : "Alles", checked : true }
+    { value: "Lente", checked : false},
+    { value: "Winter", checked : false },
+    { value: "Pasen", checked: false },
+    { value: "Sinterklaas", checked: false},
+    { value: "Kerstmis", checked : false }
   ];
 
   constructor(private _materiaalDataService : MateriaalDataService) {}
