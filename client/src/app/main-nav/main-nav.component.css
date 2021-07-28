@@ -33,3 +33,6 @@ mat-nav-list a{
   font-size: 28px;
   font-family: 'Amatic SC', cursive;
 }
+mat-nav-list a:hover{
+  font-size: 30px;
+}

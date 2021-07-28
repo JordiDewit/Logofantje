@@ -5,6 +5,9 @@ button{
 mat-card{
     margin-top: 10px;
 }
+mat-card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 h2{
     border-bottom: 1px solid lightgrey;
 }
@@ -22,10 +25,17 @@ margin-left: 10px;
     cursor: pointer;
 }
 .download{
-    margin-left: 38%;
+    margin-left: 30%;
 }
 .pdfDownload {
     font-size: 80px;
+    color: pink;
+}
+.favo, .edit, .delete{
+    color: pink;
+}
+.favo:hover{
+    color: red;
 }
 h3{
     font-size: 20px;
