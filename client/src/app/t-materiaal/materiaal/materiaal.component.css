@@ -27,3 +27,12 @@ margin-left: 10px;
 .pdfDownload {
     font-size: 80px;
 }
+h3{
+    font-size: 20px;
+}
+.mat-card-title{
+    font-size: 25px;
+}
+.mat-card-subtitle{
+    font-size: 18px;
+}

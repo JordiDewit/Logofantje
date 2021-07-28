@@ -1,16 +1,17 @@
 <!--<div class="container" fxLayout="column" fxLayoutGap="2%">-->
     <div class="container">
+        <app-add-materiaal></app-add-materiaal>
     <mat-card>
            <h2>Filter op thema!</h2>
         <mat-card-content>
             <div class="form form-inline">
                 <div *ngFor="let filterItem of filterItems; let i = index;" class="form-check" style="padding-right: 20px; display: inline;">
-                    <label class="form-check-label" style="font-size: 16px;">
+                    <label class="form-check-label" style="font-size: 18px;">
                         <input type="checkbox" class="form-check-input" [(ngModel)] = "filterItem.checked" [value]="filterItem.value"> {{ filterItem.value }}
                     </label>
                 </div>
             </div>
-            <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
+            <h3 style="margin-top: 10px; font-size: 18px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
         </mat-card-content>
     </mat-card>
             <div fxLayout="row wrap"fxLayoutGap="20px grid">

@@ -8,6 +8,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-list.component';
 import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component';
 import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
+import { AddMateriaalComponent } from './t-materiaal/add-materiaal/add-materiaal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
     routingComponents,
     MateriaalListComponent,
     MateriaalComponent,
-    MateriaalFilterPipe
+    MateriaalFilterPipe,
+    AddMateriaalComponent
   ],
   imports: [
     BrowserModule,
