@@ -12,7 +12,7 @@ namespace Api.DTOs
         [Required]
         public string Leergebied { get; set; }
         [Required]
-        public byte[] Foto { get; set; }
+        public string Foto { get; set; }
         [Required]
         public byte[] Pdf { get; set; }
     }

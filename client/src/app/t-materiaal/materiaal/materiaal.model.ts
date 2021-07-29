@@ -9,7 +9,7 @@ export interface MateriaalJson{
 export class Materiaal {
     constructor(
         private _naam: string, 
-        private _datum = new Date(),
+        private _datum : string,
         private _thema: string,
         private _leergebied: string,
         private _foto : string,
@@ -19,9 +19,10 @@ export class Materiaal {
             return this._naam;
         }
         get datum() : Date {
-            return this._datum;
+            return new Date(this._datum);
         }
         get thema(){
+            console.log(this._datum);
             return this._thema;
         }
         get leergebied(){
@@ -33,9 +34,14 @@ export class Materiaal {
         get pdfLink() : string {
             return this._pdfLink;
         }
+        get testDatum() : Date {
+            return new  Date("2021-07-29T00:00:00");
+        }
+
 
         static fromJson(json: MateriaalJson) : Materiaal {
-            const mat = new Materiaal(json.naam, new Date(json.datum), json.thema, json.leergebied, json.foto, json.pdfLink);
+            const mat = new Materiaal(json.naam, json.datum , json.thema, json.leergebied, json.foto, json.pdfLink);
             return mat;
         }
+
 }

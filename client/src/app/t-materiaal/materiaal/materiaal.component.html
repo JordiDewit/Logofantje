@@ -2,14 +2,14 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>{{ mat.naam }}</mat-card-title>
-        <mat-card-subtitle>Toegevoegd op {{ mat.datum | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
+        <mat-card-subtitle>Toegevoegd op </mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
         <button mat-button><mat-icon class="favo">favorite</mat-icon></button>
         <button mat-button><mat-icon class="edit">edit</mat-icon></button>
         <button mat-button><mat-icon class="delete">delete</mat-icon></button>
     </mat-card-actions>
-    <img mat-card-image src={{mat.foto}} alt="Foto van het materiaal">
+    <img mat-card-image src={{mat.foto}}  alt="Foto van het materiaal">
     <mat-card-content>
         <h2>Thema</h2>
         <h3>{{ mat.thema }}</h3>

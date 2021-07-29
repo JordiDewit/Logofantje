@@ -17,7 +17,7 @@ namespace Api.Models
         [Required]
         public string Leergebied { get; set; }
         [Required]
-        public byte[] Foto { get; set; }
+        public string Foto { get; set; }
         [Required]
         public byte[] Pdf { get; set; }
         #endregion
@@ -25,19 +25,17 @@ namespace Api.Models
         #region Constructors
         public Therapiemateriaal()
         {
-            Aangemaakt = DateTime.Now;
+            Aangemaakt = DateTime.Today;
         }
         public Therapiemateriaal(string naam, string thema, string leergebied, byte[] foto, byte[] pdf ) : this()
         {
             Naam = naam;
+            Aangemaakt = DateTime.Today;
             Thema = thema;
             Leergebied = leergebied;
-            Foto = foto;
+            Foto = foto.ToImageSource();
             Pdf = pdf;
         }
-        #endregion
-        #region Methods
-        public string ImageSource => this.Foto.ToImageSource();
         #endregion
     }
 }
