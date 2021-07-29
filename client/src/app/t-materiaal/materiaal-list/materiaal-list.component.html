@@ -19,7 +19,7 @@
                 fxFlex="25%"
                 fxFlex.xs="100%"
                 fxFlex.sm="33%"
-                *ngFor="let mat of materiaal | materiaalFilter: { thema: ''} : checked()">
+                *ngFor="let mat of materiaal$ | async | materiaalFilter: { thema: ''} : checked()">
                     <app-materiaal [mat] = "mat"></app-materiaal>
                 </div>
             </div>

@@ -10,6 +10,7 @@ import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component'
 import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
 import { AddMateriaalComponent } from './t-materiaal/add-materiaal/add-materiaal.component';
 import { AboutComponent } from './yna/about/about.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AboutComponent } from './yna/about/about.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { MateriaalDataService } from '../materiaal-data.service';
+import { Materiaal } from '../materiaal/materiaal.model';
 
 @Component({
   selector: 'app-materiaal-list',
@@ -9,6 +10,7 @@ import { MateriaalDataService } from '../materiaal-data.service';
 })
 export class MateriaalListComponent implements OnInit {
 
+  private _fetchMateriaal$ = this._materiaalDataService.materiaal$;
 
   filterItems =  [
     { value: "Zomer", checked : false },
@@ -25,8 +27,8 @@ export class MateriaalListComponent implements OnInit {
   constructor(private _materiaalDataService : MateriaalDataService) {}
   
 
-  get materiaal(){
-    return this._materiaalDataService.materiaal;
+  get materiaal$(): Observable<Materiaal[]>{
+    return this._fetchMateriaal$;
   }
 
   checked(){

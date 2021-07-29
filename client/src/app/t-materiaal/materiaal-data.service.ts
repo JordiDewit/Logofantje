@@ -1,15 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MATERIAAL } from './mock-materiaal';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Materiaal} from './materiaal/materiaal.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MateriaalDataService {
 
-  private _materiaal = MATERIAAL;
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  get materiaal() {
-    return this._materiaal;
+  get materiaal$(): Observable<Materiaal[]>{
+    return this.http
+    .get(`/api/Materiaal`)
+    .pipe(map((list: any[]) => list.map(Materiaal.fromJson)));
   }
 }
