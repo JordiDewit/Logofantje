@@ -4,7 +4,7 @@
 }
 
 .sidenav {
-  width: 240px;
+  width: 220px;
 }
 
 .sidenav .mat-toolbar {
@@ -30,7 +30,7 @@ a{
   margin-top: 40px;
 }
 mat-nav-list a{
-  font-size: 35px;
+  font-size: 32px;
   font-family: 'Amatic SC', cursive;
 }
 mat-nav-list a:hover{

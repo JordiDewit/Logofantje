@@ -14,6 +14,6 @@ namespace Api.DTOs
         [Required]
         public string Foto { get; set; }
         [Required]
-        public byte[] Pdf { get; set; }
+        public string Pdf { get; set; }
     }
 }

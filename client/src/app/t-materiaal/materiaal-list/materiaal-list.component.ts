@@ -13,6 +13,7 @@ export class MateriaalListComponent implements OnInit {
   private _fetchMateriaal$ = this._materiaalDataService.materiaal$;
 
   filterItems =  [
+    { value: "Algemeen", checked: false},
     { value: "Zomer", checked : false },
     { value: "Herfst" , checked : false },
     { value: "Lente", checked : false},

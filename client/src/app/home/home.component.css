@@ -1,6 +1,6 @@
 .container{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(255,8,120,0.46262254901960786) 95%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,0.4766281512605042) 0%, rgba(255,8,120,0.46262254901960786) 88%);
     height: 100%;
     padding: 50px;
     overflow: auto;

@@ -19,7 +19,7 @@ namespace Api.Models
         [Required]
         public string Foto { get; set; }
         [Required]
-        public byte[] Pdf { get; set; }
+        public string Pdf { get; set; }
         #endregion
 
         #region Constructors
@@ -34,7 +34,7 @@ namespace Api.Models
             Thema = thema;
             Leergebied = leergebied;
             Foto = foto.ToImageSource();
-            Pdf = pdf;
+            Pdf = pdf.ToImageSource();
         }
         #endregion
     }

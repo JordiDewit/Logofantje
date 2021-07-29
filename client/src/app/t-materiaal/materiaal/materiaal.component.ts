@@ -13,11 +13,23 @@ export class MateriaalComponent implements OnInit {
 
   constructor() { }
 
-  downloadPdf(pdfUrl: string, pdfName: string){
-   FileSaver.saveAs(pdfUrl, pdfName);
-  }
+  /*downloadPdf(pdfUrl: string){
+   FileSaver.saveAs(pdfUrl, null);
+  }*/
 
   ngOnInit(): void {
   }
+
+  downloadPdf(base64String, fileName) {
+    const source = `data:application/pdf;base64,${base64String}`;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.pdf`
+    link.click();
+  }
+  /*onClickDownloadPdf(){
+    let base64String = "your-base64-string";
+    this.downloadPdf(base64String,"sample");
+  }*/
 
 }

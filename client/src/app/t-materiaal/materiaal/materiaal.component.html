@@ -2,7 +2,7 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>{{ mat.naam }}</mat-card-title>
-        <mat-card-subtitle>Toegevoegd op </mat-card-subtitle>
+        <mat-card-subtitle>Toegevoegd op {{ mat.aangemaakt | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
         <button mat-button><mat-icon class="favo">favorite</mat-icon></button>
@@ -17,7 +17,8 @@
         <h3>{{ mat.leergebied }}</h3>
         <h2>De start PDF</h2>
         <div class="download">
-        <a (click)="downloadPdf('./assets/Het-varkenspel.pdf', 'Varkenspel')"><mat-icon class="pdfDownload">picture_as_pdf</mat-icon></a>
+       <a (click)="downloadPdf('{{ mat.pdf }}', '{{ mat.naam }}')"><mat-icon class="pdfDownload">picture_as_pdf</mat-icon></a>
     </div>
     </mat-card-content>
 </mat-card>
+

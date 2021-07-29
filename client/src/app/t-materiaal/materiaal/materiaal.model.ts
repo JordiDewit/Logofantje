@@ -1,28 +1,28 @@
 export interface MateriaalJson{
     naam: string;
-    datum: string;
+    aangemaakt: string;
     thema: string;
     leergebied: string;
     foto: string;
-    pdfLink: string;
+    pdf: string;
 }
 export class Materiaal {
     constructor(
         private _naam: string, 
-        private _datum : string,
+        private _aangemaakt : string,
         private _thema: string,
         private _leergebied: string,
         private _foto : string,
-        private _pdfLink : string ){}
+        private _pdf : string ){}
 
         get naam() : string {
             return this._naam;
         }
-        get datum() : Date {
-            return new Date(this._datum);
+        get aangemaakt() : Date {
+            return new Date(this._aangemaakt);
         }
         get thema(){
-            console.log(this._datum);
+            console.log(this._aangemaakt);
             return this._thema;
         }
         get leergebied(){
@@ -31,8 +31,8 @@ export class Materiaal {
         get foto() : string {
             return this._foto;
         }
-        get pdfLink() : string {
-            return this._pdfLink;
+        get pdf() : string {
+            return this._pdf;
         }
         get testDatum() : Date {
             return new  Date("2021-07-29T00:00:00");
@@ -40,7 +40,7 @@ export class Materiaal {
 
 
         static fromJson(json: MateriaalJson) : Materiaal {
-            const mat = new Materiaal(json.naam, json.datum , json.thema, json.leergebied, json.foto, json.pdfLink);
+            const mat = new Materiaal(json.naam, json.aangemaakt , json.thema, json.leergebied, json.foto, json.pdf);
             return mat;
         }
 
