@@ -9,6 +9,7 @@ import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-l
 import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component';
 import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
 import { AddMateriaalComponent } from './t-materiaal/add-materiaal/add-materiaal.component';
+import { AboutComponent } from './yna/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddMateriaalComponent } from './t-materiaal/add-materiaal/add-materiaal
     MateriaalListComponent,
     MateriaalComponent,
     MateriaalFilterPipe,
-    AddMateriaalComponent
+    AddMateriaalComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
