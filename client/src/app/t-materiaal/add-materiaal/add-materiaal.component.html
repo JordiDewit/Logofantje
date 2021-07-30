@@ -1,5 +1,9 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>Voeg materiaal hier toe</mat-card-title>
+        <mat-form-field>
+            <input matInput placeholder="name" type="text" #matnaam>
+        </mat-form-field>
+        <button (click)="addMateriaal(matnaam)" mat-raised-button>OK</button>
     </mat-card-header>
 </mat-card>

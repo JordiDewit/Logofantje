@@ -22,7 +22,6 @@ export class Materiaal {
             return new Date(this._aangemaakt);
         }
         get thema(){
-            console.log(this._aangemaakt);
             return this._thema;
         }
         get leergebied(){
@@ -37,11 +36,33 @@ export class Materiaal {
         get testDatum() : Date {
             return new  Date("2021-07-29T00:00:00");
         }
-
-
         static fromJson(json: MateriaalJson) : Materiaal {
             const mat = new Materiaal(json.naam, json.aangemaakt , json.thema, json.leergebied, json.foto, json.pdf);
             return mat;
         }
-
+        toJson() : MateriaalJson{
+            return {
+                naam : this.naam,
+                aangemaakt : this.aangemaakt.toDateString(),
+                thema: this.thema,
+                leergebied: this.leergebied,
+                foto : this.foto,
+                pdf: this.pdf
+            };
+        }
+  
+          downloadPdf(){
+              const source = this._pdf;
+              console.log(source);
+              const link = document.createElement("a");
+              link.href = source;
+              link.download = `${this._naam}.pdf`;
+              link.click();
+          }
+          public onClickDownloadPdf(){
+              this.downloadPdf();
+          }
+          public test() {
+              console.log(this._pdf);
+          }
 }

@@ -6,3 +6,6 @@ body {
     color:black;
     margin: 0px;
  }
+ .mat-spinner circle{
+     stroke: pink!important;
+ }

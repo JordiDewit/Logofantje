@@ -1,5 +1,6 @@
     <div class="container">
-        <app-add-materiaal></app-add-materiaal>
+        <button mat-fab (click)="display = !display">Voeg toe</button>
+        <app-add-materiaal *ngIf="display"></app-add-materiaal>
     <mat-card>
            <h2>Filter op thema!</h2>
         <mat-card-content>
@@ -13,6 +14,7 @@
             <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
         </mat-card-content>
     </mat-card>
+    <div *ngIf="(materiaal$ | async) as materiaal; else loadingOrError">
             <div fxLayout="row wrap"fxLayoutGap="20px grid">
                 <div
                 class="materiaal"
@@ -22,4 +24,14 @@
                     <app-materiaal [mat] = "mat"></app-materiaal>
                 </div>
             </div>
+    </div>
+            <ng-template #loadingOrError>
+                <mat-card class="error" *ngIf="errorMessage; else loading">
+                    Fout bij het laden van het materiaal: {{ errorMessage }}.<br>
+                    Probeer later opnieuw.
+                </mat-card>
+            </ng-template>
+            <ng-template #loading>
+                <mat-spinner style="margin:0 auto; "></mat-spinner>
+            </ng-template>
 </div>

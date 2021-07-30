@@ -31,4 +31,16 @@ input{
 .materiaal{
     min-width: 300px;
 }
-
+.mat-fab{
+    background-color: pink;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+}
+.mat-fab:hover{
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 2px grey);
+    -webkit-filter: drop-shadow(0px 3px 2px grey);
+}

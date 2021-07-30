@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from '../materiaal/materiaal.model';
 
@@ -10,7 +11,10 @@ import { Materiaal } from '../materiaal/materiaal.model';
 })
 export class MateriaalListComponent implements OnInit {
 
-  private _fetchMateriaal$ = this._materiaalDataService.materiaal$;
+  private _fetchMateriaal$: Observable<Materiaal[]>;
+  public errorMessage : string = '';
+  display = false;
+
 
   filterItems =  [
     { value: "Algemeen", checked: false},
@@ -31,11 +35,19 @@ export class MateriaalListComponent implements OnInit {
   get materiaal$(): Observable<Materiaal[]>{
     return this._fetchMateriaal$;
   }
-
   checked(){
     return this.filterItems.filter(item => { return item.checked; });
   }
+  addMateriaal(materiaal: Materiaal){
+    this._materiaalDataService.addMateriaal(materiaal);
+  }
   ngOnInit(): void {
+    this._fetchMateriaal$ = this._materiaalDataService.materiaal$.pipe(
+      catchError(err => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+    )
   }
 
 }

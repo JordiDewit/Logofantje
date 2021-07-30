@@ -34,7 +34,7 @@ namespace Api.Models
             Thema = thema;
             Leergebied = leergebied;
             Foto = foto.ToImageSource();
-            Pdf = pdf.ToImageSource();
+            Pdf = pdf.ToPdfSource();
         }
         #endregion
     }
