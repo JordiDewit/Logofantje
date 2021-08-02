@@ -23,7 +23,7 @@ namespace Api.Data.Repositories
             if (_dbContext.Database.EnsureCreated())
             {
 
-                string path1 = "images/tm/AapjesSpel.jpeg";
+                /*string path1 = "images/tm/AapjesSpel.jpeg";
                 string fotoPath = GetFilePath(path1);
                 byte[] foto1 = File.ReadAllBytes(fotoPath);
 
@@ -53,15 +53,15 @@ namespace Api.Data.Repositories
 
                 string pathpdf = "files/pdf/Het-varkenspel.pdf";
                 string pdfPath = GetFilePath(pathpdf);
-                byte[] testPdf = File.ReadAllBytes(pdfPath);
+                byte[] testPdf = File.ReadAllBytes(pdfPath);*/
 
-                Therapiemateriaal tm1 = new Therapiemateriaal("Het aapjesspel", "Zomer", "Lezen", foto1, testPdf);
-                Therapiemateriaal tm2 = new Therapiemateriaal("Het bordspel", "Winter", "Rekenen", foto2, testPdf);
-                Therapiemateriaal tm3 = new Therapiemateriaal("Het kuikentjesspel", "Herfst", "Lezen", foto3, testPdf);
-                Therapiemateriaal tm4 = new Therapiemateriaal("Rol de piraat", "Pasen", "Taal", foto4, testPdf);
-                Therapiemateriaal tm5 = new Therapiemateriaal("Schuifspel", "Kerstmis", "Rekenen", foto5, testPdf);
-                Therapiemateriaal tm6 = new Therapiemateriaal("Het strookjesspel", "Sinterklaas", "Algemeen", foto6, testPdf);
-                Therapiemateriaal tm7 = new Therapiemateriaal("Het wasknijperspel", "Sinterklaas", "Algemeen", foto7, testPdf);
+                Therapiemateriaal tm1 = new Therapiemateriaal("Het aapjesspel", "Zomer", "Lezen", "Resources/Images/tm1.JPG");
+                Therapiemateriaal tm2 = new Therapiemateriaal("Het bordspel", "Winter", "Rekenen", "Resources/Images/tm1.JPG");
+                Therapiemateriaal tm3 = new Therapiemateriaal("Het kuikentjesspel", "Herfst", "Lezen", "Resources/Images/tm1.JPG");
+                Therapiemateriaal tm4 = new Therapiemateriaal("Rol de piraat", "Pasen", "Taal", "Resources/Images/tm1.JPG");
+                Therapiemateriaal tm5 = new Therapiemateriaal("Schuifspel", "Kerstmis", "Rekenen", "Resources/Images/tm1.JPG");
+                Therapiemateriaal tm6 = new Therapiemateriaal("Het strookjesspel", "Sinterklaas", "Algemeen", "Resources/Images/tm1.JPG");
+                Therapiemateriaal tm7 = new Therapiemateriaal("Het wasknijperspel", "Sinterklaas", "Algemeen", "Resources/Images/tm1.JPG");
                 _dbContext.AddRange(tm1, tm2, tm3, tm4, tm5, tm6, tm7);
                 _dbContext.SaveChanges();
             }

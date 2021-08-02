@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Api.DTOs;
 using Api.Models;
@@ -35,7 +37,8 @@ namespace Api.Controllers
                 return NotFound();
             return mat;
         }
-        //Post methode
+        //Post methodes
+      
         [HttpPost]
         public ActionResult<Therapiemateriaal> PostMateriaal(MateriaalDTO mat)
         {
@@ -44,10 +47,9 @@ namespace Api.Controllers
                 Naam = mat.Naam,
                 Thema = mat.Thema,
                 Leergebied = mat.Leergebied,
-                Foto = mat.Foto,
-                Pdf = mat.Pdf
+                Foto = mat.Foto
             };
-
+            Console.WriteLine(matToCreate);
             _materiaalRepo.Add(matToCreate);
             _materiaalRepo.SaveChanges();
 
@@ -67,6 +69,7 @@ namespace Api.Controllers
             _materiaalRepo.SaveChanges();
             return NoContent();
         }
+
         //Delete methode
         [HttpDelete("{id}")]
         public IActionResult DeleteMateriaal(int id)

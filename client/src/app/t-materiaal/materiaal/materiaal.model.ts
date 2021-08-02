@@ -4,22 +4,21 @@ export interface MateriaalJson{
     thema: string;
     leergebied: string;
     foto: string;
-    pdf: string;
 }
 export class Materiaal {
     constructor(
         private _naam: string, 
-        private _aangemaakt : string,
+        private _aangemaakt = new Date(),
         private _thema: string,
         private _leergebied: string,
-        private _foto : string,
-        private _pdf : string ){}
+        private _foto : string
+         ){}
 
         get naam() : string {
             return this._naam;
         }
         get aangemaakt() : Date {
-            return new Date(this._aangemaakt);
+            return this._aangemaakt;
         }
         get thema(){
             return this._thema;
@@ -27,17 +26,11 @@ export class Materiaal {
         get leergebied(){
             return this._leergebied;
         }
-        get foto() : string {
+        get foto(){
             return this._foto;
         }
-        get pdf() : string {
-            return this._pdf;
-        }
-        get testDatum() : Date {
-            return new  Date("2021-07-29T00:00:00");
-        }
         static fromJson(json: MateriaalJson) : Materiaal {
-            const mat = new Materiaal(json.naam, json.aangemaakt , json.thema, json.leergebied, json.foto, json.pdf);
+            const mat = new Materiaal(json.naam, new Date(json.aangemaakt) , json.thema, json.leergebied, json.foto);
             return mat;
         }
         toJson() : MateriaalJson{
@@ -46,12 +39,10 @@ export class Materiaal {
                 aangemaakt : this.aangemaakt.toDateString(),
                 thema: this.thema,
                 leergebied: this.leergebied,
-                foto : this.foto,
-                pdf: this.pdf
+                foto: this.foto
             };
         }
-  
-          downloadPdf(){
+          /*downloadPdf(){
               const source = this._pdf;
               console.log(source);
               const link = document.createElement("a");
@@ -64,5 +55,5 @@ export class Materiaal {
           }
           public test() {
               console.log(this._pdf);
-          }
+          }*/
 }

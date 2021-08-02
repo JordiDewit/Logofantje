@@ -11,6 +11,7 @@ import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
 import { AddMateriaalComponent } from './t-materiaal/add-materiaal/add-materiaal.component';
 import { AboutComponent } from './yna/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UploadComponent } from './t-materiaal/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     MateriaalComponent,
     MateriaalFilterPipe,
     AddMateriaalComponent,
-    AboutComponent
+    AboutComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

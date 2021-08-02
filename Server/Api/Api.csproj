@@ -22,6 +22,8 @@
     <None Remove="DTOs\" />
     <None Remove="Extensions\" />
     <None Remove="Data\Mappers\" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -36,6 +38,8 @@
     <Folder Include="wwwroot\files\pdf\" />
     <Folder Include="wwwroot\images\tm\" />
     <Folder Include="Data\Mappers\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\files\pdf\Het-varkenspel.pdf">

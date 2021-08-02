@@ -1,4 +1,6 @@
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Materiaal } from '../materiaal/materiaal.model';
 
 @Component({
@@ -8,17 +10,27 @@ import { Materiaal } from '../materiaal/materiaal.model';
 })
 export class AddMateriaalComponent implements OnInit {
 
-  @Output() public newMat = new EventEmitter<Materiaal>();
-
-  constructor() { }
+  @Output() public newMateriaal = new EventEmitter<Materiaal>();
+  public mat: Materiaal;
+  matFG: FormGroup;
+  public foto: {dbPath: ''};
+  constructor() {}
 
   ngOnInit(): void {
+    this.matFG = new FormGroup({
+      naam: new FormControl(),
+      thema: new FormControl(),
+      leergebied: new FormControl()
+    });
   }
 
-  addMateriaal(matNaam: HTMLInputElement) : boolean {
-    const materiaal = new Materiaal(matNaam.value, null, null, null, null, null);
-    this.newMat.emit(materiaal);
+  submitMateriaal(){
+    const mat = new Materiaal(this.matFG.value.naam, new Date(), this.matFG.value.thema, this.matFG.value.leergebied, this.foto.dbPath);
+    this.newMateriaal.emit(mat);
     return false;
   }
 
+  public uploadFinished = (event)=>{
+    this.foto = event;
+  }
 }

@@ -1,9 +1,18 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>Voeg materiaal hier toe</mat-card-title>
-        <mat-form-field>
-            <input matInput placeholder="name" type="text" #matnaam>
-        </mat-form-field>
-        <button (click)="addMateriaal(matnaam)" mat-raised-button>OK</button>
-    </mat-card-header>
-</mat-card>
+    <mat-card-title>Voeg materiaal toe</mat-card-title>
+    <form [formGroup]="matFG" (ngSubmit)="submitMateriaal()">
+    <mat-form-field style="margin: 10px">
+      <input matInput placeholder="naam" type="text" formControlName="naam" aria-label="naam">
+    </mat-form-field>
+    <mat-form-field style="margin: 10px">
+        <input matInput placeholder="thema" type="text" formControlName="thema" aria-label="thema" />
+    </mat-form-field>
+    <mat-form-field style="margin: 10px">
+        <input matInput placeholder="leergebied" type="text" formControlName="leergebied" aria-label="leergebied" />
+    </mat-form-field>
+    <app-upload style="margin: 10px" (onUploadFinished)="uploadFinished($event)"></app-upload>
+    <button mat-raised-button type="submit" mat-raised-button>
+      voeg toe
+    </button>
+  </form>
+  </mat-card>

@@ -6,3 +6,18 @@ mat-card{
     font-size: 28px;
     font-family: 'Amatic SC', cursive;
 }
+.mat-raised-button{
+    background-color: pink;
+    margin: 10px;
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    font-weight: bolder;
+}
+input, input::-webkit-input-placeholder {
+    font-size: 20px;
+}
+.mat-form-field{
+    font-size: 28px;
+    font-family: 'Amatic SC', cursive;
+}

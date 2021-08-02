@@ -18,8 +18,6 @@ namespace Api.Models
         public string Leergebied { get; set; }
         [Required]
         public string Foto { get; set; }
-        [Required]
-        public string Pdf { get; set; }
         #endregion
 
         #region Constructors
@@ -27,14 +25,13 @@ namespace Api.Models
         {
             Aangemaakt = DateTime.Today;
         }
-        public Therapiemateriaal(string naam, string thema, string leergebied, byte[] foto, byte[] pdf ) : this()
+        public Therapiemateriaal(string naam, string thema, string leergebied, string foto) : this()
         {
             Naam = naam;
             Aangemaakt = DateTime.Today;
             Thema = thema;
             Leergebied = leergebied;
-            Foto = foto.ToImageSource();
-            Pdf = pdf.ToPdfSource();
+            Foto = foto;
         }
         #endregion
     }

@@ -1,0 +1,14 @@
+.mat-raised-button{
+    background-color: #A8D4ED;
+    margin: 10px;
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.upload{
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+    font-weight: bolder;
+    color: green;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay } from 'rxjs/operators';
 import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from '../materiaal/materiaal.model';
 
@@ -14,6 +14,7 @@ export class MateriaalListComponent implements OnInit {
   private _fetchMateriaal$: Observable<Materiaal[]>;
   public errorMessage : string = '';
   display = false;
+  display2 = false;
 
 
   filterItems =  [
@@ -29,7 +30,14 @@ export class MateriaalListComponent implements OnInit {
     { value: "Valentijn", checked : false}
   ];
 
-  constructor(private _materiaalDataService : MateriaalDataService) {}
+  constructor(private _materiaalDataService : MateriaalDataService) {
+    this._fetchMateriaal$ = this._materiaalDataService.allMateriaal$.pipe(
+      catchError(err => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+    );
+  }
   
 
   get materiaal$(): Observable<Materiaal[]>{
@@ -42,12 +50,7 @@ export class MateriaalListComponent implements OnInit {
     this._materiaalDataService.addMateriaal(materiaal);
   }
   ngOnInit(): void {
-    this._fetchMateriaal$ = this._materiaalDataService.materiaal$.pipe(
-      catchError(err => {
-        this.errorMessage = err;
-        return EMPTY;
-      })
-    )
+  
   }
 
 }

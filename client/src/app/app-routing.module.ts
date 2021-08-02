@@ -5,7 +5,7 @@ import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-l
 import { AboutComponent } from './yna/about/about.component';
 
 const routes: Routes = [
-{ path:"home", component: HomeComponent},
+{ path:"", component: HomeComponent, pathMatch: 'full'},
 { path:"tmateriaal", component: MateriaalListComponent},
 { path:"yna", component: AboutComponent}
 ];
