@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from './materiaal.model';
 @Component({
   selector: 'app-materiaal',
@@ -9,11 +10,14 @@ export class MateriaalComponent implements OnInit {
 
   @Input() public mat!: Materiaal;
 
-  constructor() { }
+  constructor(private _materiaalDataService: MateriaalDataService) {}
 
   ngOnInit(): void {
   }
 
+  deleteMateriaal(){
+    this._materiaalDataService.deleteMateriaal(this.mat);
+  }
   public createImgPath(serverPath: string){
     return `https://localhost:5001/${serverPath}`;
 }

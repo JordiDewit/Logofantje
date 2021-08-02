@@ -1,4 +1,5 @@
 export interface MateriaalJson{
+    id: number;
     naam: string;
     aangemaakt: string;
     thema: string;
@@ -6,6 +7,7 @@ export interface MateriaalJson{
     foto: string;
 }
 export class Materiaal {
+    private _id: number;
     constructor(
         private _naam: string, 
         private _aangemaakt = new Date(),
@@ -13,7 +15,9 @@ export class Materiaal {
         private _leergebied: string,
         private _foto : string
          ){}
-
+        get id(): number{
+            return this._id;
+        }
         get naam() : string {
             return this._naam;
         }
@@ -31,16 +35,17 @@ export class Materiaal {
         }
         static fromJson(json: MateriaalJson) : Materiaal {
             const mat = new Materiaal(json.naam, new Date(json.aangemaakt) , json.thema, json.leergebied, json.foto);
+            mat._id = json.id;
             return mat;
         }
         toJson() : MateriaalJson{
-            return {
+            return <MateriaalJson>{
                 naam : this.naam,
                 aangemaakt : this.aangemaakt.toDateString(),
                 thema: this.thema,
                 leergebied: this.leergebied,
                 foto: this.foto
-            };
+            };  
         }
           /*downloadPdf(){
               const source = this._pdf;

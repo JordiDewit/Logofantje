@@ -18,6 +18,7 @@ namespace Api.Models
         public string Leergebied { get; set; }
         [Required]
         public string Foto { get; set; }
+        
         #endregion
 
         #region Constructors

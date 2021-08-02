@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Materiaal} from './materiaal/materiaal.model';
 
 @Injectable({
@@ -41,6 +41,17 @@ export class MateriaalDataService {
     });
   }
 
+  //http delete mehtode om materiaal te verwijderen
+  deleteMateriaal(mat: Materiaal){
+    return this.http
+    .delete(`/api/Materiaal/${mat.id}`)
+    .pipe(catchError(this.handleError))
+    .subscribe(() => {
+      delete this._materiaal[mat.id - 1];
+      this._materiaal$.next(this._materiaal);
+    })
+  }
+  
   //error handeling
   handleError(err: any): Observable<never>{
     let errorMessage: string;

@@ -7,7 +7,7 @@
     <mat-card-actions>
         <button mat-button><mat-icon class="favo">favorite</mat-icon></button>
         <button mat-button><mat-icon class="edit">edit</mat-icon></button>
-        <button mat-button><mat-icon class="delete">delete</mat-icon></button>
+        <button mat-button (click)="deleteMateriaal()"><mat-icon class="delete">delete</mat-icon></button>
     </mat-card-actions>
     <img mat-card-image [src]="createImgPath(mat.foto)" alt="Foto van het materiaal">
     <mat-card-content>
