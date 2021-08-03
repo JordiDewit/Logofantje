@@ -5,10 +5,12 @@
     font-family: 'Amatic SC', cursive;
     font-size: 25px;
     font-weight: bolder;
+    letter-spacing: 2px;
 }
 .upload{
     font-family: 'Amatic SC', cursive;
     font-size: 25px;
     font-weight: bolder;
     color: green;
+    letter-spacing: 2px;
 }

@@ -3,14 +3,18 @@ mat-card{
     margin-bottom: 10px;
 }
 .mat-card-title{
-    font-size: 28px;
     font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 2;
 }
 .mat-raised-button{
     background-color: pink;
     margin: 10px;
     color: white;
     font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
     font-size: 25px;
     font-weight: bolder;
 }
@@ -20,4 +24,23 @@ input, input::-webkit-input-placeholder {
 .mat-form-field{
     font-size: 28px;
     font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+mat-option{
+    font-size: 28px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+.mat-select{
+    font-size: 28px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+h1{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 30px;
+    color: green;
+    font-weight: bold;
+    line-height: 2;
 }

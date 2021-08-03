@@ -44,3 +44,8 @@ a i:hover{
     font-size: 30px;
     font-family: 'Amatic SC', cursive; 
 }
+p{
+    line-height: 35px;
+    letter-spacing: 2px;
+    font-size: 32px;
+}

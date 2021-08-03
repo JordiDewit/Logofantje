@@ -5,6 +5,7 @@ export interface MateriaalJson{
     thema: string;
     leergebied: string;
     foto: string;
+    pdf: string;
 }
 export class Materiaal {
     private _id: number;
@@ -13,7 +14,8 @@ export class Materiaal {
         private _aangemaakt = new Date(),
         private _thema: string,
         private _leergebied: string,
-        private _foto : string
+        private _foto : string,
+        private _pdf : string
          ){}
         get id(): number{
             return this._id;
@@ -33,8 +35,11 @@ export class Materiaal {
         get foto(){
             return this._foto;
         }
+        get pdf(){
+            return this._pdf;
+        }
         static fromJson(json: MateriaalJson) : Materiaal {
-            const mat = new Materiaal(json.naam, new Date(json.aangemaakt) , json.thema, json.leergebied, json.foto);
+            const mat = new Materiaal(json.naam, new Date(json.aangemaakt) , json.thema, json.leergebied, json.foto, json.pdf);
             mat._id = json.id;
             return mat;
         }
@@ -44,11 +49,12 @@ export class Materiaal {
                 aangemaakt : this.aangemaakt.toDateString(),
                 thema: this.thema,
                 leergebied: this.leergebied,
-                foto: this.foto
+                foto: this.foto,
+                pdf: this.pdf
             };  
         }
-          /*downloadPdf(){
-              const source = this._pdf;
+          downloadPdf(){
+              const source = `https://localhost:5001/${this._pdf}`;
               console.log(source);
               const link = document.createElement("a");
               link.href = source;
@@ -58,7 +64,5 @@ export class Materiaal {
           public onClickDownloadPdf(){
               this.downloadPdf();
           }
-          public test() {
-              console.log(this._pdf);
-          }*/
+          
 }

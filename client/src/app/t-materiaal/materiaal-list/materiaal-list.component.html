@@ -3,7 +3,7 @@
         <button mat-fab (click)="display2 = !display2">Filter</button>
         <app-add-materiaal *ngIf="display" (newMateriaal)="addMateriaal($event)"></app-add-materiaal>
     <mat-card *ngIf="display2">
-           <h2>Filter op thema!</h2>
+           <mat-card-title>Filter op thema!</mat-card-title>
         <mat-card-content>
             <div class="form form-inline">
                 <div *ngFor="let filterItem of filterItems; let i = index;" class="form-check" style="padding-right: 20px; display: inline;">

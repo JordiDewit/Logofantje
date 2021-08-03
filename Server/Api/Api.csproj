@@ -24,6 +24,7 @@
     <None Remove="Data\Mappers\" />
     <None Remove="Resources\" />
     <None Remove="Resources\Images\" />
+    <None Remove="Resources\Pdf\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -40,6 +41,7 @@
     <Folder Include="Data\Mappers\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Pdf\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\files\pdf\Het-varkenspel.pdf">

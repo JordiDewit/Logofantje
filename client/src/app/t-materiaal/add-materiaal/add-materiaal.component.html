@@ -3,16 +3,31 @@
     <form [formGroup]="matFG" (ngSubmit)="submitMateriaal()">
     <mat-form-field style="margin: 10px">
       <input matInput placeholder="naam" type="text" formControlName="naam" aria-label="naam">
+      <mat-error>Naam is verplicht en minstens 3 karakters lang.</mat-error>
     </mat-form-field>
     <mat-form-field style="margin: 10px">
-        <input matInput placeholder="thema" type="text" formControlName="thema" aria-label="thema" />
+        <mat-label>Thema</mat-label>
+        <mat-select formControlName="thema">
+          <mat-option *ngFor="let thema of themas" [value]="thema.value">
+            {{thema.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>Thema is verplicht</mat-error>
     </mat-form-field>
     <mat-form-field style="margin: 10px">
-        <input matInput placeholder="leergebied" type="text" formControlName="leergebied" aria-label="leergebied" />
-    </mat-form-field>
+      <mat-label>Leergebied</mat-label>
+      <mat-select formControlName="leergebied">
+        <mat-option *ngFor="let gebied of gebieden" [value]="gebied.value">
+          {{gebied.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-error>Leergebied is verplicht</mat-error>
+  </mat-form-field>
     <app-upload style="margin: 10px" (onUploadFinished)="uploadFinished($event)"></app-upload>
-    <button mat-raised-button type="submit" mat-raised-button>
+    <app-upload-pdf style="margin: 10px" (onUploadFinished)="uploadPdfFinished($event)"></app-upload-pdf>
+    <button mat-raised-button type="submit" mat-raised-button [disabled]="!matFG.valid">
       voeg toe
     </button>
   </form>
+  <h1 *ngIf="message!=null">{{ message }}</h1>
   </mat-card>

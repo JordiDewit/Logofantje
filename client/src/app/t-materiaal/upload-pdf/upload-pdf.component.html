@@ -1,0 +1,8 @@
+<div>
+    <input type="file" #file placeholder="kies een pdf" (change)="uploadFile(file.files)" style="display: none;">
+    <button mat-raised-button type="button" (click)="file.click()">Upload pdf</button>
+</div>
+<div>
+<span class="upload" *ngIf="progress > 0">{{ progress }}% </span>
+<span class="upload" *ngIf="message">{{ message }}</span>
+</div>

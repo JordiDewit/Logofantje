@@ -17,7 +17,7 @@ namespace Api.Controllers
     public class UploadController : ControllerBase
     {
 
-        //methoden om image up te loaden
+        //post methode om pdf te uploaden
         [HttpPost, DisableRequestSizeLimit]
         public IActionResult Upload()
         {
@@ -50,5 +50,7 @@ namespace Api.Controllers
                 return StatusCode(500, $"Internal server error: {ex}");
             }
         }
-    }
+
+       
+}
 }
