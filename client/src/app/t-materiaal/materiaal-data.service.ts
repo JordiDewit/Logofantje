@@ -31,6 +31,11 @@ export class MateriaalDataService {
       map((list: any[]) => list.map(Materiaal.fromJson)));
   }
 
+  //de http get methode om een materiaal te krijgen volgens id
+  getMateriaalById$(id: string) : Observable<Materiaal>{
+    return this.http.get(`/api/Materiaal/${id}`)
+    .pipe(catchError(this.handleError), map(Materiaal.fromJson));
+  }
   //http  post methode om materiaal toe te voegen.
   addMateriaal(materiaal:Materiaal){
     return this.http.post(`/api/Materiaal`, materiaal.toJson())
@@ -41,17 +46,27 @@ export class MateriaalDataService {
     });
   }
 
-  //http delete mehtode om materiaal te verwijderen
+  //http delete methode om materiaal te verwijderen
   deleteMateriaal(mat: Materiaal){
     return this.http
     .delete(`/api/Materiaal/${mat.id}`)
     .pipe(catchError(this.handleError))
     .subscribe(() => {
-      delete this._materiaal[mat.id - 1];
       this._materiaal$.next(this._materiaal);
     })
   }
-  
+
+  //http put methode om materiaal te wijzigen
+  editMateriaal(materiaal: Materiaal){
+    console.log(materiaal.id);
+    return this.http
+    .put(`/api/Materiaal/${materiaal.id}`, materiaal.toJson())
+    .pipe(map(Materiaal.fromJson))
+    .subscribe((mat: Materiaal) => {
+      this._materiaal = [...this._materiaal, mat];
+      this._materiaal$.next(this._materiaal);
+    });
+  }
   //error handeling
   handleError(err: any): Observable<never>{
     let errorMessage: string;

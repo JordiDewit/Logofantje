@@ -38,6 +38,21 @@ export class Materiaal {
         get pdf(){
             return this._pdf;
         }
+        setNaam(naam: string){
+            this._naam = naam;
+        }
+        setThema(thema: string){
+            this._thema = thema;
+        }
+        setLeergebied(gebied: string){
+            this._leergebied = gebied;
+        }
+        setFoto(foto: string){
+            this._foto = foto;
+        }
+        setPdf(pdf: string){
+            this._pdf=pdf;
+        }
         static fromJson(json: MateriaalJson) : Materiaal {
             const mat = new Materiaal(json.naam, new Date(json.aangemaakt) , json.thema, json.leergebied, json.foto, json.pdf);
             mat._id = json.id;

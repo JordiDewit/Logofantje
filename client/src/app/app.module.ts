@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-list.component';
+import { MateriaalListComponent } from './t-materiaal/materiaal-list/materiaal-list.component'
 import { MateriaalComponent } from './t-materiaal/materiaal/materiaal.component';
 import { MateriaalFilterPipe } from './t-materiaal/materiaal-filter.pipe';
 import { AddMateriaalComponent } from './t-materiaal/add-materiaal/add-materiaal.component';
@@ -13,6 +13,7 @@ import { AboutComponent } from './yna/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './t-materiaal/upload/upload.component';
 import { UploadPdfComponent } from './t-materiaal/upload-pdf/upload-pdf.component';
+import { MateriaalEditComponent } from './t-materiaal/materiaal-edit/materiaal-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +24,15 @@ import { UploadPdfComponent } from './t-materiaal/upload-pdf/upload-pdf.componen
     MateriaalComponent,
     MateriaalFilterPipe,
     AddMateriaalComponent,
-    AboutComponent,
     UploadComponent,
-    UploadPdfComponent
+    UploadPdfComponent,
+    MateriaalEditComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     MaterialModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],

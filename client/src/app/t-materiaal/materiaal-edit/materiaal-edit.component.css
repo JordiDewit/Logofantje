@@ -1,0 +1,67 @@
+.container{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,0.4766281512605042) 0%, rgba(255,8,120,0.46262254901960786) 88%);
+    height: 100%;
+    padding: 50px;
+    overflow: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.mat-card-title{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 2;
+}
+.mat-form-field{
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+mat-option{
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+.mat-select{
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+mat-label{
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+.mat-raised-button{
+    background-color: pink;
+    margin: 10px;
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 30px;
+    font-weight: bolder;
+}
+h1{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 30px;
+    color: green;
+    font-weight: bold;
+    line-height: 2;
+}
+.mat-fab{
+    background-color: pink;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+}
+.mat-fab:hover{
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 2px grey);
+    -webkit-filter: drop-shadow(0px 3px 2px grey);
+}

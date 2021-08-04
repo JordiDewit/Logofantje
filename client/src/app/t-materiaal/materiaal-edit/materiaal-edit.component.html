@@ -1,0 +1,34 @@
+<div class="container">
+    <button mat-fab (click)="backClicked()">terug</button>
+    <mat-card>
+        <mat-card-title>Wijzig {{mat.naam}}</mat-card-title>
+        <form [formGroup]="matFG" (ngSubmit)="editMateriaal()">
+            <mat-form-field style="margin: 10px; margin-right: 20px;">
+                <mat-label>Naam</mat-label>
+                <input matInput placeholder="naam" type="text" formControlName="naam" aria-label="naam">
+            </mat-form-field>
+            <mat-form-field style="margin: 10px; margin-right: 20px;">
+                <mat-label>Thema</mat-label>
+                <mat-select formControlName="thema">
+                  <mat-option *ngFor="let thema of themas" [value]="thema.value">
+                    {{thema.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field style="margin: 10px; margin-right: 20px;">
+                <mat-label>Leergebied</mat-label>
+                <mat-select formControlName="leergebied">
+                  <mat-option *ngFor="let gebied of gebieden" [value]="gebied.value">
+                    {{gebied.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <app-upload style="margin: 10px" (onUploadFinished)="uploadFinished($event)"></app-upload>
+            <app-upload-pdf style="margin: 10px" (onUploadFinished)="uploadPdfFinished($event)"></app-upload-pdf>
+            <button mat-raised-button type="submit" mat-raised-button>
+                Wijzig {{ mat.naam }}
+        </button>
+        </form>
+        <h1 *ngIf="message!=null">{{ message }}!</h1>
+    </mat-card>
+</div>

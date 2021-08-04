@@ -21,6 +21,9 @@ mat-card{
 input, input::-webkit-input-placeholder {
     font-size: 20px;
 }
+input{
+    font-size: 28px;
+}
 .mat-form-field{
     font-size: 28px;
     font-family: 'Amatic SC', cursive;
