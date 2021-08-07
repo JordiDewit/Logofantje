@@ -49,6 +49,7 @@ export class MateriaalListComponent implements OnInit {
   addMateriaal(materiaal: Materiaal){
     this._materiaalDataService.addMateriaal(materiaal);
   }
+  
   ngOnInit(): void {
   
   }

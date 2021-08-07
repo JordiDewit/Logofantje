@@ -38,6 +38,9 @@ export class Materiaal {
         get pdf(){
             return this._pdf;
         }
+        setAangemaakt(aangemaakt: Date){
+            this._aangemaakt = aangemaakt;
+        }
         setNaam(naam: string){
             this._naam = naam;
         }
@@ -60,8 +63,9 @@ export class Materiaal {
         }
         toJson() : MateriaalJson{
             return <MateriaalJson>{
+                id: this.id,
                 naam : this.naam,
-                aangemaakt : this.aangemaakt.toDateString(),
+                aangemaakt : this.aangemaakt.toISOString(),
                 thema: this.thema,
                 leergebied: this.leergebied,
                 foto: this.foto,

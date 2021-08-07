@@ -58,10 +58,9 @@ export class MateriaalDataService {
 
   //http put methode om materiaal te wijzigen
   editMateriaal(materiaal: Materiaal){
-    console.log(materiaal.id);
+    console.log(materiaal);
     return this.http
-    .put(`/api/Materiaal/${materiaal.id}`, materiaal.toJson())
-    .pipe(map(Materiaal.fromJson))
+    .put<Materiaal>(`/api/Materiaal/${materiaal.id}`, materiaal.toJson())
     .subscribe((mat: Materiaal) => {
       this._materiaal = [...this._materiaal, mat];
       this._materiaal$.next(this._materiaal);

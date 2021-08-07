@@ -73,9 +73,11 @@ export class MateriaalEditComponent implements OnInit {
       if(this.newPdf != this.mat.pdf)
       this.mat.setPdf(this.newPdf);
 
-      console.log(this.mat.naam, this.mat.aangemaakt, this.mat.thema, this.mat.leergebied, this.mat.foto, this.mat.leergebied);
+      this.mat.setAangemaakt(new Date());
 
-      //this.materiaalDataService.editMateriaal(this.mat);
+      console.log(this.mat.naam, this.mat.aangemaakt, this.mat.thema, this.mat.leergebied, this.mat.foto, this.mat.leergebied);
+      console.log(this.mat.id);
+      this.materiaalDataService.editMateriaal(this.mat);
       this.message = `Je hebt ${this.mat.naam} gewijzigd`;
       return false;
     }

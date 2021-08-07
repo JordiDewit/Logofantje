@@ -45,6 +45,7 @@ export class AddMateriaalComponent implements OnInit {
 
   submitMateriaal(){
     const mat = new Materiaal(this.matFG.value.naam, new Date(), this.matFG.value.thema, this.matFG.value.leergebied, this.foto.dbPath, this.pdf.dbPath);
+    console.log(mat);
     this.newMateriaal.emit(mat);
     this.message="Je hebt nieuw materiaal toegevoegd!";
     return false;
