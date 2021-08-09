@@ -29,5 +29,6 @@
       voeg toe
     </button>
   </form>
+  <h1 class="error" *ngIf="errorMessage!=null">{{ errorMessage }}</h1>
   <h1 *ngIf="message!=null">{{ message }}</h1>
   </mat-card>

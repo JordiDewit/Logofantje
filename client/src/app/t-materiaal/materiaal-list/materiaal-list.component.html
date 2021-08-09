@@ -1,7 +1,7 @@
     <div class="container">
         <button mat-fab (click)="display = !display">Voeg toe</button>
         <button mat-fab (click)="display2 = !display2">Filter</button>
-        <app-add-materiaal *ngIf="display" (newMateriaal)="addMateriaal($event)"></app-add-materiaal>
+        <app-add-materiaal *ngIf="display"></app-add-materiaal>
     <mat-card *ngIf="display2">
            <mat-card-title>Filter op thema!</mat-card-title>
         <mat-card-content>

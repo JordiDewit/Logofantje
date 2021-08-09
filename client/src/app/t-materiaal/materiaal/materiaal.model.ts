@@ -72,16 +72,13 @@ export class Materiaal {
                 pdf: this.pdf
             };  
         }
-          downloadPdf(){
-              const source = `https://localhost:5001/${this._pdf}`;
-              console.log(source);
-              const link = document.createElement("a");
-              link.href = source;
-              link.download = `${this._naam}.pdf`;
-              link.click();
-          }
           public onClickDownloadPdf(){
-              this.downloadPdf();
+            const source = `https://localhost:5001/${this._pdf}`;
+            console.log(source);
+            const link = document.createElement("a");
+            link.href = source;
+            window.open(source);
+            link.download = `${this._naam}.pdf`;
           }
           
 }

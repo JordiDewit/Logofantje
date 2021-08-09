@@ -4,6 +4,8 @@ import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from '../materiaal/materiaal.model';
 import {Location} from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { stringify } from '@angular/compiler/src/util';
+import { formattedError } from '@angular/compiler';
 
 @Component({
   selector: 'app-materiaal-edit',
@@ -13,8 +15,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class MateriaalEditComponent implements OnInit {
   public mat: Materiaal;
   matFG: FormGroup;
-  newFoto : string;
-  newPdf : string;
+  newFoto : {dbPath: string};
+  newPdf :  {dbPath: string};
   message: string;
 
   themas = [
@@ -52,8 +54,13 @@ export class MateriaalEditComponent implements OnInit {
         leergebied: [this.mat.leergebied]
       });
 
-      this.newFoto = this.mat.foto;
-      this.newPdf = this.mat.pdf;
+        this.newFoto = {
+          dbPath : this.mat.foto
+        }
+        this.newPdf = {
+          dbPath : this.mat.pdf
+        }
+        
     }
 
     //edit methode
@@ -67,11 +74,11 @@ export class MateriaalEditComponent implements OnInit {
       if(this.matFG.value.leergebied != this.mat.leergebied)
       this.mat.setLeergebied(this.matFG.value.leergebied);
 
-      if(this.newFoto != this.mat.foto)
-      this.mat.setFoto(this.newFoto);
+      if(this.newFoto.dbPath != this.mat.foto)
+      this.mat.setFoto(this.newFoto.dbPath);
 
-      if(this.newPdf != this.mat.pdf)
-      this.mat.setPdf(this.newPdf);
+      if(this.newPdf.dbPath != this.mat.pdf)
+      this.mat.setPdf(this.newPdf.dbPath);
 
       this.mat.setAangemaakt(new Date());
 
@@ -82,6 +89,7 @@ export class MateriaalEditComponent implements OnInit {
       return false;
     }
   public uploadFinished = (event)=>{
+    console.log(typeof(event));
     this.newFoto = event;
   }
   public uploadPdfFinished = (event)=>{
@@ -95,3 +103,4 @@ export class MateriaalEditComponent implements OnInit {
   }
 
 }
+

@@ -46,10 +46,6 @@ export class MateriaalListComponent implements OnInit {
   checked(){
     return this.filterItems.filter(item => { return item.checked; });
   }
-  addMateriaal(materiaal: Materiaal){
-    this._materiaalDataService.addMateriaal(materiaal);
-  }
-  
   ngOnInit(): void {
   
   }

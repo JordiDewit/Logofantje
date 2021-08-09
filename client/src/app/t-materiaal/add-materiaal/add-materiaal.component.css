@@ -47,3 +47,11 @@ h1{
     font-weight: bold;
     line-height: 2;
 }
+.error{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 28px;
+    color: red;
+    font-weight: bold;
+    line-height: 2;
+}
