@@ -7,15 +7,4 @@
     padding-left: 20%;
     padding-right: 20%;
 }
-.logocard{
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    margin-bottom: 30px;
-}
-.mat-card-title{
-    font-size: 45px;
-    font-family: 'Amatic SC', cursive;
-    font-size: bold;
-    padding-bottom: 15px;
-}
+

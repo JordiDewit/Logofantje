@@ -1,23 +1,22 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
+﻿using Api.Data.Mappers;
 using Api.Models;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data
 {
-    public class MateriaalContext : DbContext
+    public class MateriaalContext : IdentityDbContext
     {
         public DbSet<Therapiemateriaal> Materialen { get; set; }
-        public MateriaalContext(DbContextOptions<MateriaalContext> options) : base(options)
-        {
-        }
+        public DbSet<Gebruiker> Gebruikers { get; set; }
+        public MateriaalContext(DbContextOptions<MateriaalContext> options) : base(options){}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            builder.ApplyConfiguration(new TherapiemateriaalConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new UserFavorietenConfiguration());
 
         }
     }

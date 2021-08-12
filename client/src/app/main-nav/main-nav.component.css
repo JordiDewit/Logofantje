@@ -37,3 +37,19 @@ mat-nav-list a:hover{
   font-size: 30px;
   color: pink;
 }
+.mat-raised-button{
+  margin-left: 70%;
+  background-color: pink;
+  margin: 10px;
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  letter-spacing: 2px;
+  font-size: 25px;
+  font-weight: bolder;
+}
+h2{
+  padding-top: 30px;
+  font-size: 24px;
+  padding-left: 15px;
+  font-family: 'Amatic SC', cursive;
+}
