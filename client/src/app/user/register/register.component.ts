@@ -52,26 +52,33 @@ export class RegisterComponent implements OnInit {
     {value: 'student', viewValue: 'Student'},
     {value: 'ouder', viewValue: 'Ouder'},
   ];
-  constructor(private fb: FormBuilder,private router: Router, private authService: AuthenticationService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router, 
+    private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.user = this.fb.group({
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastname: ['', Validators.required],
       functie: ['', Validators.required],
       email: ['', [Validators.required, Validators.email],
       serverSideValidateUsername(this.authService.checkUserNameAvailability)
       ],
       passwordGroup: this.fb.group({
-        password: ['', [
-          Validators.required, Validators.minLength(8),
-          patternValidator(/\d/, { hasNumber: true }),
-          patternValidator(/[A-Z]/, { hasUpperCase: true }),
-          patternValidator(/[a-z]/, { hasLowerCase: true }),
+        password: ['', 
+        [
+          Validators.required, 
+          Validators.minLength(8),
+          patternValidator(/\d/, { hasNumber: true , required_if: true}),
+          patternValidator(/[A-Z]/, { hasUpperCase: true, required_if: true}),
+          patternValidator(/[a-z]/, { hasLowerCase: true, required_if: true}),
         ],
       ],
-        confirmPassword: ['', Validators.required]
-      }, { validator: comparePasswords })
+        confirmPassword: ['', Validators.required],
+      }, 
+      { validator: comparePasswords }
+      ),
     });
   }
 
@@ -99,13 +106,14 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.user.value.email, this.user.value.passwordGroup.password, this.user.value.firstName, this.user.value.lastname, this.user.value.functie);
     this.authService
       .register(
         this.user.value.email,
         this.user.value.passwordGroup.password,
-        this.user.value.name,
+        this.user.value.firstName,
         this.user.value.lastname,
-        this.user.value.functie,
+        this.user.value.functie
       )
       .subscribe(
         (val) => {
@@ -121,6 +129,7 @@ export class RegisterComponent implements OnInit {
           }
         },
         (err: HttpErrorResponse) => {
+          console.log(err);
           if (err.error instanceof Error) {
             this.errorMessage = `Error while trying to login user ${this.user.value.email}: ${err.error.message}`;
           } else {
@@ -128,6 +137,6 @@ export class RegisterComponent implements OnInit {
           }
         }
       );
-  }
 
+  }
 }

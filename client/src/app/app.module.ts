@@ -18,6 +18,8 @@ import { MateriaalEditComponent } from './t-materiaal/materiaal-edit/materiaal-e
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { httpInterceptorProviders } from './interceptors';
+import { FavorietListComponent } from './favoriet/favoriet-list/favoriet-list.component';
+import { FavoComponent } from './favoriet/favo/favo.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { httpInterceptorProviders } from './interceptors';
     MateriaalEditComponent,
     AboutComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FavorietListComponent,
+    FavoComponent
   ],
   imports: [
     BrowserModule,

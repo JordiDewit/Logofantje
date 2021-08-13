@@ -39,7 +39,6 @@ export class MateriaalListComponent implements OnInit {
     );
   }
 
-
   get materiaal$(): Observable<Materiaal[]>{
     return this._fetchMateriaal$;
   }

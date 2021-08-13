@@ -72,7 +72,7 @@ export class AuthenticationService {
           password, 
           name, 
           lastname, 
-          functie, 
+          functie,
           passwordConfirmation: password
         },
         { responseType: 'text' }

@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ mat.naam }}</mat-card-title>
+        <mat-card-subtitle>Toegevoegd op {{ mat.aangemaakt | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
+    </mat-card-header>
+    <!--<mat-card-actions>
+        <button mat-button><mat-icon class="favo">favorite</mat-icon></button>
+        <button mat-button routerLink="/tmateriaal/edit/{{mat.id}}"><mat-icon class="edit">edit</mat-icon></button>
+        <button mat-button (click)="deleteMateriaal()"><mat-icon class="delete">delete</mat-icon></button>
+    </mat-card-actions>-->
+    <img mat-card-image [src]="createImgPath(mat.foto)" alt="Foto van het materiaal">
+    <mat-card-content>
+        <h2>Thema</h2>
+        <h3>{{ mat.thema }}</h3>
+        <h2>Leergebied</h2>
+        <h3>{{ mat.leergebied }}</h3>
+        <h2>De start PDF</h2>
+        <div class="download">
+        <a (click)="mat.onClickDownloadPdf()"><mat-icon class="pdfDownload">picture_as_pdf</mat-icon></a>
+        </div>
+    </mat-card-content>
+</mat-card>

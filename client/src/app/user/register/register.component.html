@@ -12,11 +12,11 @@
             placeholder="Voornaam"
             aria-label="Voornaam"
             data-cy="register-name"
-            formControlName="name"
+            formControlName="firstName"
           />
           <mat-error
             *ngIf="
-              user.get('name').errors && user.get('name').touched
+              user.get('firstName').errors && user.get('firstName').touched
             "
           >
             {{ getErrorMessage(user.get('name').errors) }}
