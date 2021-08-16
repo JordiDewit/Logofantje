@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Api.Models;
 using Microsoft.AspNetCore.Hosting;
@@ -38,21 +39,22 @@ namespace Api.Data.Repositories
                 _dbContext.AddRange(tm1, tm2, tm3, tm4, tm5, tm6, tm7);
                 _dbContext.SaveChanges();
 
-                Gebruiker admin = new Gebruiker { Email = "yna.admin@artevelde.be", Name = "Yna", Lastname = "Bauwens", Functie="Logopedist" };
+                Gebruiker admin = new Gebruiker { Email = "yna.admin@artevelde.be", Name = "Yna", Lastname = "Bauwens", Functie="Logopedist" , Role="admin"};
                 _dbContext.Gebruikers.Add(admin);
-                await CreateUser(admin.Email, "P@ssword123!");
-                Gebruiker gebruiker = new Gebruiker { Email = "mieke.bosman@gmail.com", Name = "Mieke", Lastname = "Bosman", Functie = "Student" };
+                await CreateUser(admin.Email, "P@ssword123!", "admin");
+                Gebruiker gebruiker = new Gebruiker { Email = "mieke.bosman@gmail.com", Name = "Mieke", Lastname = "Bosman", Functie = "Student", Role="customer"};
                 _dbContext.Add(gebruiker);
-                await CreateUser(gebruiker.Email, "P@ssword321!");
+                await CreateUser(gebruiker.Email, "P@ssword321!", "customer");
                 gebruiker.AddFavoriet(_dbContext.Materialen.First());
                 _dbContext.SaveChanges();
             }
         }
 
-        private async Task CreateUser(string email, string password)
+        private async Task CreateUser(string email, string password, string role)
         {
             var user = new IdentityUser { UserName = email, Email = email };
             await _userManager.CreateAsync(user, password);
+            await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, role));
         }
     }
 }

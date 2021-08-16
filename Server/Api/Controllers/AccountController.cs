@@ -46,7 +46,7 @@ namespace Api.Controllers
                 var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
                 if (result.Succeeded)
                 {
-                    string token = GetToken(user);
+                    string token = await GetTokenAsync(user);
                     return Created("", token);
                 }
             }
@@ -62,15 +62,17 @@ namespace Api.Controllers
                 Name = model.Name,
                 Lastname = model.Lastname ,
                 Email = model.Email,
-                Functie = model.Functie
+                Functie = model.Functie,
+                Role = "customer"
             };
             var result = await _userManager.CreateAsync(user, model.Password);
+            await _userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "customer"));
 
             if (result.Succeeded)
             {
                 _userRepository.Add(gebruiker);
                 _userRepository.SaveChanges();
-                string token = GetToken(user);
+                string token = await GetTokenAsync(user);
                 return Created("", token);
             }
             return BadRequest();
@@ -84,13 +86,16 @@ namespace Api.Controllers
             return user == null;
         }
 
-        private String GetToken(IdentityUser user)
+        private async Task<string> GetTokenAsync(IdentityUser user)
         {
-            var claims = new[]
+            var roleClaims = await _userManager.GetClaimsAsync(user);
+
+            var claims = new List<Claim>()
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName)
             };
+            claims.AddRange(roleClaims);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
 

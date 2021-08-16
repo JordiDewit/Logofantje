@@ -41,7 +41,6 @@ namespace Api.Controllers
         }
 
         [HttpGet("Favorieten")]
-        [AllowAnonymous]
         public IEnumerable<Therapiemateriaal> GetFavorieten()
         {
             Gebruiker gebruiker = _userRepo.GetBy(User.Identity.Name);
@@ -50,7 +49,7 @@ namespace Api.Controllers
         //Post methodes
       
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Policy = "admin")]
         public ActionResult<Therapiemateriaal> PostMateriaal(MateriaalDTO mat)
         {
             Therapiemateriaal matToCreate = new Therapiemateriaal()
@@ -71,7 +70,7 @@ namespace Api.Controllers
 
       //Put methode
       [HttpPut("{id}")]
-      [AllowAnonymous]
+      [Authorize(Policy = "admin")]
         public IActionResult PutMateriaal(int id, Therapiemateriaal mat)
         {
             if( id != mat.Id)
@@ -85,7 +84,7 @@ namespace Api.Controllers
 
         //Delete methode
         [HttpDelete("{id}")]
-        [AllowAnonymous]
+        [Authorize(Policy = "admin")]
         public IActionResult DeleteMateriaal(int id)
         {
             Therapiemateriaal mat = _materiaalRepo.GetBy(id);

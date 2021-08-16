@@ -11,6 +11,7 @@ namespace Api.DTOs
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Functie { get; set; }
+        public string Role { get; set; }
         public IEnumerable<Therapiemateriaal> Materiaal { get; set; }
         #endregion
 
@@ -22,6 +23,7 @@ namespace Api.DTOs
             LastName = gebruiker.Lastname;
             Email = gebruiker.Email;
             Functie = gebruiker.Functie;
+            Role = gebruiker.Role;
             Materiaal = gebruiker.FavorietMateriaal;
         }
         #endregion

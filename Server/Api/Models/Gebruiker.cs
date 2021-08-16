@@ -20,6 +20,8 @@ namespace Api.Models
 
         public String Functie { get; set; }
 
+        public String Role { get; set; }
+
         public ICollection<UserFavorieten> Favorieten { get; private set; }
 
         public IEnumerable<Therapiemateriaal> FavorietMateriaal => Favorieten.Select(f => f.Materiaal);

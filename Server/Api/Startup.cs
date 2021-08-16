@@ -1,5 +1,6 @@
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using Api.Data;
 using Api.Data.Repositories;
@@ -42,6 +43,11 @@ namespace Api
             services.AddScoped<IGebruikerRepository, GebruikerRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>(cfg => cfg.User.RequireUniqueEmail = true).AddEntityFrameworkStores<MateriaalContext>();
+
+            services.AddAuthorization(options => {
+                options.AddPolicy("Admin", policy => policy.RequireClaim(ClaimTypes.Role, "admin"));
+                options.AddPolicy("Customer", policy => policy.RequireClaim(ClaimTypes.Role, "customer"));
+            });
 
             services.Configure<FormOptions>(o =>
            {
