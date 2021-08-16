@@ -1,5 +1,5 @@
     <div class="container">
-        <button mat-fab (click)="display = !display">Voeg toe</button>
+        <button *ngIf="roleAdmin" mat-fab (click)="display = !display">Voeg toe</button>
         <button mat-fab (click)="display2 = !display2">Filter</button>
         <app-add-materiaal *ngIf="display"></app-add-materiaal>
     <mat-card *ngIf="display2">

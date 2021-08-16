@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Api.DTOs;
+using System;
 
 namespace Api.Controllers
 {
@@ -34,9 +35,15 @@ namespace Api.Controllers
             Therapiemateriaal mat = _matRepo.GetBy(id);
             if (mat != null)
             {
-                Gebruiker gebruiker = _userRepo.GetBy(User.Identity.Name);
-                gebruiker.AddFavoriet(mat);
-                _userRepo.SaveChanges();
+                try
+                {
+                    Gebruiker gebruiker = _userRepo.GetBy(User.Identity.Name);
+                    gebruiker.AddFavoriet(mat);
+                    _userRepo.SaveChanges();
+                }catch(InvalidOperationException ex)
+                {
+                    return BadRequest();
+                }
             }
             else
             {

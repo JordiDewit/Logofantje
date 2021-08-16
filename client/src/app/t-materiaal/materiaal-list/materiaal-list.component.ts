@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, delay } from 'rxjs/operators';
+import { FavorietDataService } from 'src/app/favoriet/favoriet-data.service';
+import { User } from 'src/app/favoriet/user.model';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from '../materiaal/materiaal.model';
 
@@ -12,6 +15,8 @@ import { Materiaal } from '../materiaal/materiaal.model';
 export class MateriaalListComponent implements OnInit {
 
   private _fetchMateriaal$: Observable<Materiaal[]>;
+  gebruiker$ : Observable<User>;
+  roleAdmin: boolean= null;
   public errorMessage : string = '';
   addedFavo : string = null;
   display = false;
@@ -31,13 +36,14 @@ export class MateriaalListComponent implements OnInit {
     { value: "Valentijn", checked : false}
   ];
 
-  constructor(private _materiaalDataService : MateriaalDataService) {
+  constructor(private _materiaalDataService : MateriaalDataService, private _favoDataService: FavorietDataService,) {
     this._fetchMateriaal$ = this._materiaalDataService.allMateriaal$.pipe(
       catchError(err => {
         this.errorMessage = err;
         return EMPTY;
       })
     );
+    this.gebruiker$ = this._favoDataService.user$;
   }
 
   get materiaal$(): Observable<Materiaal[]>{
@@ -50,7 +56,10 @@ export class MateriaalListComponent implements OnInit {
     this.addedFavo = event;
   }
   ngOnInit(): void {
-  
+    this.gebruiker$.subscribe( res => {
+      if(res.role=="admin")
+      this.roleAdmin=true;
+    });
   }
 
 }

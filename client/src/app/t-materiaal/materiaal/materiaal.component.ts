@@ -17,6 +17,8 @@ export class MateriaalComponent implements OnInit {
   gebruiker$ : Observable<User>;
   roleAdmin: boolean= null;
   favoMessage : string = null;
+  favoExist : string = null;
+  materiaal : Materiaal[];
   @Output() public added = new EventEmitter();
   
   constructor(private _materiaalDataService: MateriaalDataService, 
@@ -27,15 +29,22 @@ export class MateriaalComponent implements OnInit {
 
   ngOnInit(): void {
     this.gebruiker$.subscribe( res => {
+      this.materiaal = res.materiaal;
       if(res.role=="admin")
       this.roleAdmin=true;
     });
   }
 
   addFavoriet(){
-    this._favoDataService.addFavoriet(this.mat);
-    this.favoMessage = `Je hebt ${this.mat.naam} toegevoegd aan je favorieten!`;
-    this.added.emit(this.favoMessage);
+
+    if(this.materiaal.filter(m => m.id == this.mat.id).length > 0){
+      this.favoExist = `Je hebt ${this.mat.naam} al in je favorieten staan`;
+    }else{
+      this._favoDataService.addFavoriet(this.mat);
+      this.favoMessage = `Je hebt ${this.mat.naam} toegevoegd aan je favorieten!`;
+      this.added.emit(this.favoMessage);
+    }
+   
   }
 
   deleteMateriaal(){
