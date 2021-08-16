@@ -4,6 +4,7 @@ export interface UserJson{
     lastname: string;
     email: string;
     functie: string;
+    role: string,
     materiaal: MateriaalJson[];
 }
 export class User{
@@ -13,6 +14,7 @@ export class User{
         private _lastname: string,
         private _email: string,
         private _functie: string,
+        private _role: string,
         private _materiaal = new Array<Materiaal>()
     ){}
 
@@ -28,12 +30,15 @@ export class User{
     get functie(): string{
         return this._functie;
     }
+    get role(): string{
+        return this._role;
+    }
     get materiaal(): Materiaal[]{
         return this._materiaal;
     }
     static fromJson(json: UserJson) : User {
 
-        const user = new User(json.name , json.lastname, json.email, json.functie, json.materiaal.map(Materiaal.fromJson));
+        const user = new User(json.name , json.lastname, json.email, json.functie, json.role, json.materiaal.map(Materiaal.fromJson));
         return user;
     }
     toJson() : UserJson{
@@ -42,6 +47,7 @@ export class User{
             lastname: this.lastname,
             email: this.email,
             functie: this.functie,
+            role: this.role,
             materiaal: this.materiaal.map(mat => mat.toJson())
         };  
     }
