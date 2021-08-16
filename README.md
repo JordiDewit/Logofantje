@@ -7,7 +7,7 @@ Logofantje is een webapplicatie waar Yna Bauwens als studente Logopedie aan de A
 # Ontwikkelaar
 - Jordi Dewit 
 
-# Betrokkene
+# Betrokkenen
 - Yna Bauwens
 
 # Gebruikte technologie frontend
