@@ -24,7 +24,7 @@ namespace Api.Data.Repositories
         {
             return _users.Include(g => g.Favorieten).ThenInclude(g => g.Materiaal).SingleOrDefault(g => g.Email == email);
         }
-
+   
         public void SaveChanges()
         {
             _context.SaveChanges();

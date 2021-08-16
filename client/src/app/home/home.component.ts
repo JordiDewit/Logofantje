@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../user/authentication.service';
-
 
 @Component({
   selector: 'app-home',
@@ -10,6 +7,8 @@ import { AuthenticationService } from '../user/authentication.service';
 })
 export class HomeComponent {
 
+
   constructor() {}
+
 
 }

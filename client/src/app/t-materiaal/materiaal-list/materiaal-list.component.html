@@ -15,6 +15,7 @@
             <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
         </mat-card-content>
     </mat-card>
+    <h2 *ngIf="addedFavo!=null">{{ addedFavo }}</h2>
     <div *ngIf="(materiaal$ | async) as materiaal; else loadingOrError">
             <div fxLayout="row wrap"fxLayoutGap="20px grid">
                 <div
@@ -22,7 +23,7 @@
                 fxFlex="25%"
                 fxFlex.xs="100%"
                 *ngFor="let mat of materiaal$ | async | materiaalFilter: { thema: ''} : checked()">
-                    <app-materiaal [mat] = "mat"></app-materiaal>
+                    <app-materiaal [mat] = "mat" (added)="added($event)"></app-materiaal>
                 </div>
             </div>
     </div>

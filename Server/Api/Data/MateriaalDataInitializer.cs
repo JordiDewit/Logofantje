@@ -40,10 +40,10 @@ namespace Api.Data.Repositories
 
                 Gebruiker admin = new Gebruiker { Email = "yna.admin@artevelde.be", Name = "Yna", Lastname = "Bauwens", Functie="Logopedist" };
                 _dbContext.Gebruikers.Add(admin);
-                await CreateUser(admin.Email, "P@ssword123");
+                await CreateUser(admin.Email, "P@ssword123!");
                 Gebruiker gebruiker = new Gebruiker { Email = "mieke.bosman@gmail.com", Name = "Mieke", Lastname = "Bosman", Functie = "Student" };
                 _dbContext.Add(gebruiker);
-                await CreateUser(gebruiker.Email, "P@ssword321");
+                await CreateUser(gebruiker.Email, "P@ssword321!");
                 gebruiker.AddFavoriet(_dbContext.Materialen.First());
                 _dbContext.SaveChanges();
             }

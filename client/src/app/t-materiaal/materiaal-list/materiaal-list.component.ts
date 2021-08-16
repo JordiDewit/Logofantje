@@ -13,6 +13,7 @@ export class MateriaalListComponent implements OnInit {
 
   private _fetchMateriaal$: Observable<Materiaal[]>;
   public errorMessage : string = '';
+  addedFavo : string = null;
   display = false;
   display2 = false;
 
@@ -44,6 +45,9 @@ export class MateriaalListComponent implements OnInit {
   }
   checked(){
     return this.filterItems.filter(item => { return item.checked; });
+  }
+  added(event){
+    this.addedFavo = event;
   }
   ngOnInit(): void {
   

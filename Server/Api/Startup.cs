@@ -115,21 +115,22 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
-
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Resources")),
                 RequestPath = new PathString("/Resources")
             });
+
+            
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
             app.UseRouting();
 
             app.UseAuthentication();
-
+           
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

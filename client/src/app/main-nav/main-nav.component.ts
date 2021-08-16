@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthenticationService } from '../user/authentication.service';
 import { Router } from '@angular/router';
+import { FavorietListComponent } from '../favoriet/favoriet-list/favoriet-list.component';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+
+
 
   loggedInUser$ = this._authenticationService.user$;
   

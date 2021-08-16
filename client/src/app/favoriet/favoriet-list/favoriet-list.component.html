@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Dit zijn jouw favorieten!</h1>
+    <h1>{{ naam }}, dit zijn jouw favorieten!</h1>
     <button mat-fab (click)="display2 = !display2">Filter</button>
 <mat-card *ngIf="display2">
        <mat-card-title>Filter op thema!</mat-card-title>
@@ -14,4 +14,17 @@
         <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
     </mat-card-content>
 </mat-card>
+<h2 *ngIf="deletedMessage!=null">{{ deletedMessage }}</h2>
+<div>
+    <div fxLayout="row wrap"fxLayoutGap="20px grid">
+        <div
+        class="materiaal"
+        fxFlex="25%"
+        fxFlex.xs="100%"
+        *ngFor="let mat of favomat |  materiaalFilter: { thema: ''} : checked()">
+            <app-favo [mat] = "mat" (deleted)="deleted($event)"></app-favo>
+        </div>
+        <h3 *ngIf="emptyMessage!=null">{{ emptyMessage }}</h3>
+    </div>
+</div>
 </div>

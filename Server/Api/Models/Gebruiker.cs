@@ -35,5 +35,10 @@ namespace Api.Models
         {
             Favorieten.Add(new UserFavorieten() { MateriaalId = therapiemateriaal.Id, GebruikerId = GebruikerId, Materiaal = therapiemateriaal, Gebruiker = this});
         }
+        public void RemoveFavoriet(Therapiemateriaal therapiemateriaal)
+        {
+            UserFavorieten favo = Favorieten.SingleOrDefault(f => f.MateriaalId == therapiemateriaal.Id);
+            Favorieten.Remove(favo);
+        }
    }
 }

@@ -17,9 +17,10 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Controllers
 {
-    [ApiConventionType(typeof(DefaultApiConventions))]
+    
     [Route("api/[controller]")]
     [ApiController]
+    [ApiConventionType(typeof(DefaultApiConventions))]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -96,7 +97,7 @@ namespace Api.Controllers
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 null, null, claims, expires: DateTime.Now.AddMinutes(30), signingCredentials: creds);
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return "Bearer " + new JwtSecurityTokenHandler().WriteToken(token);
 
         }
 

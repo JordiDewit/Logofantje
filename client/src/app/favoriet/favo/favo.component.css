@@ -1,0 +1,65 @@
+button{
+    padding: 0px;  
+}
+mat-card{
+    margin-top: 10px;
+}
+mat-card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+h2{
+    border-bottom: 1px solid lightgrey;
+}
+button{
+    border: none;
+    background-color:transparent;
+}
+.mat-icon{
+font-size: 30px;
+padding-right: 10px;
+margin-left: 10px;
+}
+.mat-icon:hover{
+    color: lightgrey;
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 2px black);
+    -webkit-filter: drop-shadow(0px 3px 2px black);
+}
+.download{
+    margin-left: 30%;
+}
+.pdfDownload {
+    font-size: 80px;
+    color: pink;
+}
+.favo, .edit, .delete{
+    color: pink;
+}
+.favo:hover{
+    color: red;
+}
+h3{
+    font-size: 20px;
+}
+.mat-card-title{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 2;
+}
+.mat-card-subtitle{
+    letter-spacing: 2px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+}
+h2{
+    letter-spacing: 2px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+}
+h3{
+    letter-spacing: 2px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 24px;
+}

@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FavorietDataService } from 'src/app/favoriet/favoriet-data.service';
+import { AuthenticationService } from 'src/app/user/authentication.service';
 import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from './materiaal.model';
 @Component({
@@ -9,10 +11,21 @@ import { Materiaal } from './materiaal.model';
 export class MateriaalComponent implements OnInit {
 
   @Input() public mat!: Materiaal;
-
-  constructor(private _materiaalDataService: MateriaalDataService) {}
+  loggedInUser$ = this._authenticationService.user$;
+  favoMessage : string = null;
+  @Output() public added = new EventEmitter();
+  
+  constructor(private _materiaalDataService: MateriaalDataService, 
+    private _favoDataService: FavorietDataService,
+    private _authenticationService: AuthenticationService,) {}
 
   ngOnInit(): void {
+  }
+
+  addFavoriet(){
+    this._favoDataService.addFavoriet(this.mat);
+    this.favoMessage = `Je hebt ${this.mat.naam} toegevoegd aan je favorieten!`;
+    this.added.emit(this.favoMessage);
   }
 
   deleteMateriaal(){

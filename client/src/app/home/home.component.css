@@ -2,9 +2,62 @@
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,0.4766281512605042) 0%, rgba(255,8,120,0.46262254901960786) 88%);
     height: 100%;
-    padding: 50px;
     overflow: auto;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
+.title{
+    width: 50%;
+    border-bottom: 3px solid black;
+    margin-bottom: 20px;
+}
+
+h1{
+    font-family: 'Halimun';
+    font-size: 7vw;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    margin-top: 200px;
+    margin-left: 10px;
+    margin-bottom: 80px;
+    font-weight: bolder;
+    line-height: 150px;
+}
+h2{
+    font-family: 'Halimun';
+    font-size: 28px;
+    letter-spacing: 2px;
+    line-height: 45px;
+}
+img{
+    border-radius: 100px 100px 0 0;
+    -webkit-border-radius: 100px 100px 0 0;
+    -moz-border-radius: 100px 100px 0 0;
+    -ms-border-radius: 100px 100px 0 0;
+    -o-border-radius: 100px 100px 0 0;
+    filter: drop-shadow(0px 3px 2px black);
+    -webkit-filter: drop-shadow(0px 3px 2px black);
+    margin-bottom: 50px;
+}
+
+.column {
+    float: left;
+    width: 32%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 700px) {
+    .column {
+      width: 100%;
+    }
+  }
+
 

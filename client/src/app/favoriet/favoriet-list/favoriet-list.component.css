@@ -23,3 +23,37 @@ h1{
     font-family: 'Amatic SC', cursive;
     letter-spacing: 2px;
 }
+.materiaal{
+    min-width: 300px;
+}
+.mat-card-title{
+    font-family: 'Amatic SC', cursive;
+    letter-spacing: 2px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 2;
+}
+h2, h3, label{
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+h2{
+    color: green;
+}
+input{
+   height: 20px;
+   width: 20px;
+}
+mat-card{
+    margin-bottom: 30px;
+}
+.mat-fab:hover{
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 2px grey);
+    -webkit-filter: drop-shadow(0px 3px 2px grey);
+}
+h3{
+    font-size: 35px;
+    margin: 0 auto;
+}
