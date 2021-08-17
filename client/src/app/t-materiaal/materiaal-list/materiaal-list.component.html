@@ -8,15 +8,15 @@
             <div class="form form-inline">
                 <div *ngFor="let filterItem of filterItems; let i = index;" class="form-check" style="padding-right: 20px; display: inline;">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" [(ngModel)] = "filterItem.checked" [value]="filterItem.value"> {{ filterItem.value }}
+                        <input type="checkbox" class="form-check-input" [(ngModel)] = "filterItem.checked" [value]="filterItem.value" data-cy="filterInput"> {{ filterItem.value }}
                     </label>
                 </div>
             </div>
             <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
         </mat-card-content>
     </mat-card>
-    <h2 *ngIf="addedFavo!=null" (click)="addedFavo=null">{{ addedFavo }}</h2>
-    <h2 *ngIf="deleted!=null" (click)="deleted=null">{{ deleted }}</h2>
+    <h2 *ngIf="addedFavo!=null" (click)="addedFavo=null" data-cy="added">{{ addedFavo }}</h2>
+    <h2 *ngIf="deleted!=null" (click)="deleted=null" data-cy="deleted">{{ deleted }}</h2>
     <div *ngIf="(materiaal$ | async) as materiaal; else loadingOrError">
             <div fxLayout="row wrap"fxLayoutGap="20px grid">
                 <div
@@ -24,12 +24,12 @@
                 fxFlex="25%"
                 fxFlex.xs="100%"
                 *ngFor="let mat of materiaal$ | async | materiaalFilter: { thema: ''} : checked()">
-                    <app-materiaal [mat] = "mat" (added)="added($event)" (deleteConfirmed)="deleteConfirmed($event)"></app-materiaal>
+                    <app-materiaal [mat] = "mat" (added)="added($event)" (deleteConfirmed)="deleteConfirmed($event)" data-cy="materiaalcard"></app-materiaal>
                 </div>
             </div>
     </div>
             <ng-template #loadingOrError>
-                <mat-card class="error" *ngIf="errorMessage; else loading">
+                <mat-card class="error" *ngIf="errorMessage; else loading" data-cy="loadingError">
                     Fout bij het laden van het materiaal: {{ errorMessage }}.<br>
                     Probeer later opnieuw.
                 </mat-card>

@@ -1,0 +1,101 @@
+[
+    {
+      "id": 1,
+      "naam": "Het aapjesspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Zomer",
+      "leergebied": "Lezen",
+      "foto": "Resources/Images/aapjesspel.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 2,
+      "naam": "Het bordspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Winter",
+      "leergebied": "Rekenen",
+      "foto": "Resources/Images/bordspel.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 3,
+      "naam": "Het eekhoornspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Herfst",
+      "leergebied": "Lezen",
+      "foto": "Resources/Images/eekhoorn.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 4,
+      "naam": "Het eendenspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Lente",
+      "leergebied": "Taal",
+      "foto": "Resources/Images/eendspel.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 5,
+      "naam": "Het huisjesspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Algemeen",
+      "leergebied": "Rekenen",
+      "foto": "Resources/Images/huisjesspel.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 6,
+      "naam": "Het kersbomenspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Kerstmis",
+      "leergebied": "Algemeen",
+      "foto": "Resources/Images/kerst.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 7,
+      "naam": "Piratenbingo",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Algemeen",
+      "leergebied": "Algemeen",
+      "foto": "Resources/Images/piratenbingo.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 8,
+      "naam": "Het schuifjesspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Algemeen",
+      "leergebied": "Algemeen",
+      "foto": "Resources/Images/schuif.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 9,
+      "naam": "Het sinterklaasspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Algemeen",
+      "leergebied": "Algemeen",
+      "foto": "Resources/Images/sintspel.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 10,
+      "naam": "Het varkentjesspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Algemeen",
+      "leergebied": "Algemeen",
+      "foto": "Resources/Images/varkensspel.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    },
+    {
+      "id": 11,
+      "naam": "Het wasknijpertjesspel",
+      "aangemaakt": "2021-08-17T00:00:00",
+      "thema": "Algemeen",
+      "leergebied": "Algemeen",
+      "foto": "Resources/Images/wasknijper.jpg",
+      "pdf": "Resources/Pdf/Het-varkenspel.pdf"
+    }
+  ]
