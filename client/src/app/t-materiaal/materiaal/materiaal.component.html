@@ -2,7 +2,7 @@
     <mat-card-header>
         <mat-card-title>{{ mat.naam }}</mat-card-title>
         <mat-card-subtitle>Toegevoegd op {{ mat.aangemaakt | date: 'dd/MM/YYYY' }}</mat-card-subtitle>
-        <mat-card-subtitle style="color:red;" *ngIf="favoExist!=null">{{ favoExist }}</mat-card-subtitle>
+        <mat-card-subtitle style="color:red;" *ngIf="favoExist!=null" (click)="favoExist=null">{{ favoExist }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions *ngIf="loggedInUser$ | async as user">
         <button  (click)="addFavoriet()" mat-button><mat-icon class="favo">favorite</mat-icon></button>

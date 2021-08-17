@@ -14,7 +14,7 @@
         <h3 style="margin-top: 10px;">Jouw gekozen filters: <span *ngFor="let filterItem of checked()" style="padding-right: 10px;">{{ filterItem.value }}</span></h3>
     </mat-card-content>
 </mat-card>
-<h2 *ngIf="deletedMessage!=null">{{ deletedMessage }}</h2>
+<h2 *ngIf="deletedMessage!=null" (click)="deletedMessage=null">{{ deletedMessage }}</h2>
 <div>
     <div fxLayout="row wrap"fxLayoutGap="20px grid">
         <div

@@ -6,10 +6,10 @@
     <mat-toolbar><img src="./assets/images/oli.PNG" height="100px"></mat-toolbar>
 
     <mat-nav-list>
-      <a mat-list-item routerLink="">Logofantje<mat-icon style="margin-left: 5px;">home</mat-icon></a>
-      <a mat-list-item routerLink="/yna">Yna<mat-icon style="margin-left: 5px;">accessibility</mat-icon></a>
-      <a mat-list-item routerLink="/tmateriaal">Therapiemateriaal<mat-icon style="margin-left: 5px;">build</mat-icon></a>
-      <a *ngIf="loggedInUser$ | async as user" mat-list-item routerLink="/favorietenlijst">Favorieten<mat-icon style="margin-left: 5px;">favorite</mat-icon></a>
+      <a mat-list-item routerLink="">Logofantje</a>
+      <a mat-list-item routerLink="/yna">Yna</a>
+      <a mat-list-item routerLink="/tmateriaal">Therapiemateriaal</a>
+      <a *ngIf="loggedInUser$ | async as user" mat-list-item routerLink="/favorietenlijst">Favorieten</a>
     </mat-nav-list>
     <span class="fill-space"></span>
     <span *ngIf="loggedInUser$ | async as user; else loginTemplate">

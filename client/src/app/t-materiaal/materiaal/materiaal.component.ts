@@ -16,6 +16,8 @@ export class MateriaalComponent implements OnInit {
   loggedInUser$ = this._authenticationService.user$;
   gebruiker$ : Observable<User>;
   roleAdmin: boolean= null;
+  deleteMessage : string = null;
+  @Output() public deleteConfirmed = new EventEmitter();
   favoMessage : string = null;
   favoExist : string = null;
   materiaal : Materiaal[];
@@ -49,6 +51,8 @@ export class MateriaalComponent implements OnInit {
 
   deleteMateriaal(){
     this._materiaalDataService.deleteMateriaal(this.mat);
+    this.deleteMessage = `Je hebt ${this.mat.naam} verwijderd`;
+    this.deleteConfirmed.emit(this.deleteMessage);
   }
   public createImgPath(serverPath: string){
     return `https://localhost:5001/${serverPath}`;

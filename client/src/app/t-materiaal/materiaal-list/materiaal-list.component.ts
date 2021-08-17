@@ -19,6 +19,7 @@ export class MateriaalListComponent implements OnInit {
   roleAdmin: boolean= null;
   public errorMessage : string = '';
   addedFavo : string = null;
+  deleted : string = null;
   display = false;
   display2 = false;
 
@@ -54,6 +55,9 @@ export class MateriaalListComponent implements OnInit {
   }
   added(event){
     this.addedFavo = event;
+  }
+  deleteConfirmed(event){
+    this.deleted = event;
   }
   ngOnInit(): void {
     this.gebruiker$.subscribe( res => {

@@ -29,14 +29,18 @@ namespace Api.Data.Repositories
             if (_dbContext.Database.EnsureCreated())
             {
 
-                Therapiemateriaal tm1 = new Therapiemateriaal("Het aapjesspel", "Zomer", "Lezen", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm2 = new Therapiemateriaal("Het bordspel", "Winter", "Rekenen", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm3 = new Therapiemateriaal("Het kuikentjesspel", "Herfst", "Lezen", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm4 = new Therapiemateriaal("Rol de piraat", "Pasen", "Taal", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm5 = new Therapiemateriaal("Schuifspel", "Kerstmis", "Rekenen", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm6 = new Therapiemateriaal("Het strookjesspel", "Sinterklaas", "Algemeen", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm7 = new Therapiemateriaal("Het wasknijperspel", "Sinterklaas", "Algemeen", "Resources/Images/tm1.JPG", "Resources/Pdf/Het-varkenspel.pdf");
-                _dbContext.AddRange(tm1, tm2, tm3, tm4, tm5, tm6, tm7);
+                Therapiemateriaal tm1 = new Therapiemateriaal("Het aapjesspel", "Zomer", "Lezen", "Resources/Images/aapjesspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm2 = new Therapiemateriaal("Het bordspel", "Winter", "Rekenen", "Resources/Images/bordspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm3 = new Therapiemateriaal("Het eekhoornspel", "Herfst", "Lezen", "Resources/Images/eekhoorn.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm4 = new Therapiemateriaal("Het eendenspel", "Lente", "Taal", "Resources/Images/eendspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm5 = new Therapiemateriaal("Het huisjesspel", "Algemeen", "Rekenen", "Resources/Images/huisjesspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm6 = new Therapiemateriaal("Het kersbomenspel", "Kerstmis", "Algemeen", "Resources/Images/kerst.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm7 = new Therapiemateriaal("Piratenbingo", "Algemeen", "Algemeen", "Resources/Images/piratenbingo.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm8 = new Therapiemateriaal("Het schuifjesspel", "Algemeen", "Algemeen", "Resources/Images/schuif.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm9 = new Therapiemateriaal("Het sinterklaasspel", "Algemeen", "Algemeen", "Resources/Images/sintspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm10 = new Therapiemateriaal("Het varkentjesspel", "Algemeen", "Algemeen", "Resources/Images/varkensspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm11 = new Therapiemateriaal("Het wasknijpertjesspel", "Algemeen", "Algemeen", "Resources/Images/wasknijper.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                _dbContext.AddRange(tm1, tm2, tm3, tm4, tm5, tm6, tm7, tm8, tm9, tm10, tm11);
                 _dbContext.SaveChanges();
 
                 Gebruiker admin = new Gebruiker { Email = "yna.admin@artevelde.be", Name = "Yna", Lastname = "Bauwens", Functie="Logopedist" , Role="admin"};

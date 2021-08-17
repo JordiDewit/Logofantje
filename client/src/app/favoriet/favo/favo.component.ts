@@ -19,7 +19,7 @@ export class FavoComponent implements OnInit {
   }
   deleteFavoriet(){
     this._favoDataService.deleteFavoriet(this.mat);
-    this.confirmMessage = `Je hebt ${this.mat.naam} verwijdert`;
+    this.confirmMessage = `Je hebt ${this.mat.naam} verwijderd`;
     this.deleted.emit(this.confirmMessage);
   }
 
