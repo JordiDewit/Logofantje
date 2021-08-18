@@ -25,27 +25,18 @@ namespace Api.Data.Repositories
 
         public async Task InitializeData()
         {
-            _dbContext.Database.EnsureDeleted();
+            //_dbContext.Database.EnsureDeleted();
             if (_dbContext.Database.EnsureCreated())
             {
 
-                Therapiemateriaal tm1 = new Therapiemateriaal("Het aapjesspel", "Zomer", "Lezen", "Resources/Images/aapjesspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm2 = new Therapiemateriaal("Het bordspel", "Winter", "Rekenen", "Resources/Images/bordspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm3 = new Therapiemateriaal("Het eekhoornspel", "Herfst", "Lezen", "Resources/Images/eekhoorn.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm4 = new Therapiemateriaal("Het eendenspel", "Lente", "Taal", "Resources/Images/eendspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm5 = new Therapiemateriaal("Het huisjesspel", "Algemeen", "Rekenen", "Resources/Images/huisjesspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm6 = new Therapiemateriaal("Het kersspel", "Kerstmis", "Algemeen", "Resources/Images/kerst.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm7 = new Therapiemateriaal("Piratenbingo", "Algemeen", "Algemeen", "Resources/Images/piratenbingo.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm8 = new Therapiemateriaal("Het schuifspel", "Algemeen", "Algemeen", "Resources/Images/schuif.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm9 = new Therapiemateriaal("Het sintspel", "Algemeen", "Algemeen", "Resources/Images/sintspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm10 = new Therapiemateriaal("Het varkentjesspel", "Algemeen", "Algemeen", "Resources/Images/varkensspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm11 = new Therapiemateriaal("Het wasknijperspel", "Algemeen", "Algemeen", "Resources/Images/wasknijper.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                _dbContext.AddRange(tm1, tm2, tm3, tm4, tm5, tm6, tm7, tm8, tm9, tm10, tm11);
+                Therapiemateriaal tm1 = new Therapiemateriaal("Meer/minder dan", "Algemeen", "Rekenen", "Resources/Images/schuif.jpg", "Resources/Pdf/_meerminder dan.pdf");
+                Therapiemateriaal tm2 = new Therapiemateriaal("Aapjesspel", "Algemeen", "Algemeen", "Resources/Images/aapjesspel.jpg", "Resources/Pdf/Aapjesspel.pdf");
+                _dbContext.AddRange(tm1, tm2);
                 _dbContext.SaveChanges();
 
-                Gebruiker admin = new Gebruiker { Email = "yna.admin@artevelde.be", Name = "Yna", Lastname = "Bauwens", Functie="Logopedist" , Role="admin"};
+                Gebruiker admin = new Gebruiker { Email = "ynabauwe@student.arteveldehs.be", Name = "Yna", Lastname = "Bauwens", Functie="Logopedist" , Role="admin"};
                 _dbContext.Gebruikers.Add(admin);
-                await CreateUser(admin.Email, "P@ssword123!", "admin");
+                await CreateUser(admin.Email, "W33tjedatik1babbeljufben?", "admin");
                 Gebruiker gebruiker = new Gebruiker { Email = "mieke.bosman@gmail.com", Name = "Mieke", Lastname = "Bosman", Functie = "Student", Role="customer"};
                 _dbContext.Add(gebruiker);
                 await CreateUser(gebruiker.Email, "P@ssword321!", "customer");

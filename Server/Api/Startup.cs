@@ -37,7 +37,7 @@ namespace Api
 
             services.AddControllers();
             services.AddDbContext<MateriaalContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MateriaalContext")));
+            options.UseSqlite(Configuration.GetConnectionString("MateriaalContext")));
             services.AddScoped<MateriaalDataInitializer>();
             services.AddScoped<IMateriaalRepository, MateriaalRepository>();
             services.AddScoped<IGebruikerRepository, GebruikerRepository>();
