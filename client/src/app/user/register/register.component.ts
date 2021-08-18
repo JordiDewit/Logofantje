@@ -125,15 +125,15 @@ export class RegisterComponent implements OnInit {
               this.router.navigate([""]);
             }
           } else {
-            this.errorMessage = `Could not login`;
+            this.errorMessage = `Kon niet registreren`;
           }
         },
         (err: HttpErrorResponse) => {
           console.log(err);
           if (err.error instanceof Error) {
-            this.errorMessage = `Error while trying to login user ${this.user.value.email}: ${err.error.message}`;
+            this.errorMessage = `Fout bij het registreren van ${this.user.value.email}: ${err.error.message}`;
           } else {
-            this.errorMessage = `Error ${err.status} while trying to login user ${this.user.value.email}: ${err.error}`;
+            this.errorMessage = `Fout ${err.status} bij het registreren van ${this.user.value.email}: ${err.error}`;
           }
         }
       );

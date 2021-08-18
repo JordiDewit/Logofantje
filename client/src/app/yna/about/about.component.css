@@ -41,11 +41,14 @@ a i:hover{
     border-bottom: 1px solid lightgrey;
 }
 .mat-card-content{
+    margin-top: 20px;
     font-size: 30px;
     font-family: 'Amatic SC', cursive; 
+
 }
 p{
     line-height: 35px;
     letter-spacing: 2px;
     font-size: 32px;
+    text-align: justify;
 }

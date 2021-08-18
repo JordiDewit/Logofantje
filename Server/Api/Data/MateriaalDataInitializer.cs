@@ -34,12 +34,12 @@ namespace Api.Data.Repositories
                 Therapiemateriaal tm3 = new Therapiemateriaal("Het eekhoornspel", "Herfst", "Lezen", "Resources/Images/eekhoorn.jpg", "Resources/Pdf/Het-varkenspel.pdf");
                 Therapiemateriaal tm4 = new Therapiemateriaal("Het eendenspel", "Lente", "Taal", "Resources/Images/eendspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
                 Therapiemateriaal tm5 = new Therapiemateriaal("Het huisjesspel", "Algemeen", "Rekenen", "Resources/Images/huisjesspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm6 = new Therapiemateriaal("Het kersbomenspel", "Kerstmis", "Algemeen", "Resources/Images/kerst.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm6 = new Therapiemateriaal("Het kersspel", "Kerstmis", "Algemeen", "Resources/Images/kerst.jpg", "Resources/Pdf/Het-varkenspel.pdf");
                 Therapiemateriaal tm7 = new Therapiemateriaal("Piratenbingo", "Algemeen", "Algemeen", "Resources/Images/piratenbingo.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm8 = new Therapiemateriaal("Het schuifjesspel", "Algemeen", "Algemeen", "Resources/Images/schuif.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm9 = new Therapiemateriaal("Het sinterklaasspel", "Algemeen", "Algemeen", "Resources/Images/sintspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm8 = new Therapiemateriaal("Het schuifspel", "Algemeen", "Algemeen", "Resources/Images/schuif.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm9 = new Therapiemateriaal("Het sintspel", "Algemeen", "Algemeen", "Resources/Images/sintspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
                 Therapiemateriaal tm10 = new Therapiemateriaal("Het varkentjesspel", "Algemeen", "Algemeen", "Resources/Images/varkensspel.jpg", "Resources/Pdf/Het-varkenspel.pdf");
-                Therapiemateriaal tm11 = new Therapiemateriaal("Het wasknijpertjesspel", "Algemeen", "Algemeen", "Resources/Images/wasknijper.jpg", "Resources/Pdf/Het-varkenspel.pdf");
+                Therapiemateriaal tm11 = new Therapiemateriaal("Het wasknijperspel", "Algemeen", "Algemeen", "Resources/Images/wasknijper.jpg", "Resources/Pdf/Het-varkenspel.pdf");
                 _dbContext.AddRange(tm1, tm2, tm3, tm4, tm5, tm6, tm7, tm8, tm9, tm10, tm11);
                 _dbContext.SaveChanges();
 

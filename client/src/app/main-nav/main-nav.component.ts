@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthenticationService } from '../user/authentication.service';
 import { Router } from '@angular/router';
 import { FavorietListComponent } from '../favoriet/favoriet-list/favoriet-list.component';
+import { User } from '../favoriet/user.model';
+import { FavorietDataService } from '../favoriet/favoriet-data.service';
 
 
 @Component({
@@ -12,11 +14,10 @@ import { FavorietListComponent } from '../favoriet/favoriet-list/favoriet-list.c
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.css']
 })
-export class MainNavComponent {
-
-
+export class MainNavComponent{
 
   loggedInUser$ = this._authenticationService.user$;
+  naam : string;
   
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

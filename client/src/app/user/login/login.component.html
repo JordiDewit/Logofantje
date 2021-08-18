@@ -43,8 +43,8 @@
         </button>
       </mat-card-actions>
     </form>
-    <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
-      got an error: {{ errorMessage }}
-    </mat-card>
+    <mat-error class="error" *ngIf="errorMessage" data-cy="appError">
+      {{ errorMessage }}
+    </mat-error>
   </mat-card>
 </div>

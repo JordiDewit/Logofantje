@@ -1,5 +1,5 @@
 it('mock materiaal get', function(){
-    cy.server({ delay: 2000 });
+    cy.server();
     cy.route({
         method: 'GET',
         url: '/api/Materiaal',
@@ -8,7 +8,7 @@ it('mock materiaal get', function(){
     });
 
     cy.visit('/tmateriaal');
-    cy.get('[data-cy=materiaalcard').should('have.length', 11);
+    cy.get('[data-cy=materiaalcard]').should('have.length', 11);
 })
 
 it('Bij een error toont boodschap', function(){
@@ -23,25 +23,6 @@ it('Bij een error toont boodschap', function(){
     cy.get('[data-cy=loadingError]').should('be.visible');
 });
 
-it('Bij toegevoegd aan favorieten krijgt men een boodschap'), function(){
-    cy.server();
-    cy.route({
-        method: 'POST',
-        url: '/api/User/1',
-        status: 200
-    });
-
+it('Bekijk het materiaal', function(){
     cy.visit('/tmateriaal');
-    cy.get('[data-cy=loadingError]').should('be.visible');
-}
-
-it('Bij verwijderen krijgt men een boodschap'), function(){
-    cy.server();
-    cy.route({
-        method: 'PUT',
-        url: '/api/Materiaal/1',
-        status: 200
-    });
-    cy.visit('/tmateriaal');
-    cy.get('data-cy=deleted').should('be.visible');
-}
+})

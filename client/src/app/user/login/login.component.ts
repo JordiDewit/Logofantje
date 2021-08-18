@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MainNavComponent } from 'src/app/main-nav/main-nav.component';
 import { AuthenticationService } from '../authentication.service';
 
 //functies
@@ -46,15 +47,15 @@ export class LoginComponent implements OnInit {
               this.router.navigate([""]);
             }
           } else {
-            this.errorMessage = `Could not login`;
+            this.errorMessage = `Kon niet inloggen`;
           }
         },
         (err: HttpErrorResponse) => {
           console.log(err);
           if (err.error instanceof Error) {
-            this.errorMessage = `Error while trying to login user ${this.user.value.username}: ${err.error.message}`;
+            this.errorMessage = `Fout bij het inloggen ${this.user.value.username}: ${err.error.message}`;
           } else {
-            this.errorMessage = `Error ${err.status} while trying to login user ${this.user.value.username}: ${err.error}`;
+            this.errorMessage = `Fout ${err.status} bij het inloggen van: ${this.user.value.username}: ${err.error}`;
           }
         }
       );
