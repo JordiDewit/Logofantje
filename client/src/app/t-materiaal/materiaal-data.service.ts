@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject, throwError } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Materiaal} from './materiaal/materiaal.model';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class MateriaalDataService {
 
   //get methode
   get materiaal$(): Observable<Materiaal[]>{
-    return this.http.get(`/api/Materiaal`)
+    return this.http.get(`${environment.apiUrl}/Materiaal`)
     .pipe(
       catchError(this.handleError),
       map((list: any[]) : Materiaal[] => list.map(Materiaal.fromJson))
@@ -22,7 +23,7 @@ export class MateriaalDataService {
   }
   //de http get methode om een materiaal te krijgen volgens id
   getMateriaalById$(id: string) : Observable<Materiaal>{
-    return this.http.get(`/api/Materiaal/${id}`)
+    return this.http.get(`${environment.apiUrl}/Materiaal/${id}`)
     .pipe(catchError(this.handleError), map(Materiaal.fromJson));
   }
 
@@ -36,7 +37,7 @@ export class MateriaalDataService {
   addMateriaal(materiaal: Materiaal){
     console.log(materiaal);
     return this.http
-    .post(`/api/Materiaal`, materiaal.toJson())
+    .post(`${environment.apiUrl}/Materiaal`, materiaal.toJson())
     .pipe(catchError(this.handleError), map(Materiaal.fromJson))
     .subscribe(() => this._reloadMateriaal$.next(true));
   }
@@ -44,14 +45,14 @@ export class MateriaalDataService {
   //http delete methode
   deleteMateriaal(mat: Materiaal){
     return this.http
-    .delete(`/api/Materiaal/${mat.id}`)
+    .delete(`${environment.apiUrl}/Materiaal/${mat.id}`)
     .pipe(tap(console.log), catchError(this.handleError))
     .subscribe(() => this._reloadMateriaal$.next(true));
   }
   editMateriaal(materiaal: Materiaal){
     console.log(materiaal);
     return this.http
-    .put(`/api/Materiaal/${materiaal.id}`, materiaal.toJson())
+    .put(`${environment.apiUrl}/Materiaal/${materiaal.id}`, materiaal.toJson())
     .pipe(catchError(this.handleError), map(Materiaal.fromJson))
     .subscribe(() => this._reloadMateriaal$.next(true));
     

@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-upload',
@@ -22,7 +23,7 @@ export class UploadComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
 
-    this.http.post('/api/Upload', formData, { reportProgress: true, observe: 'events'})
+    this.http.post(`${environment.apiUrl}/Upload`, formData, { reportProgress: true, observe: 'events'})
     .subscribe(event => {
       if(event.type === HttpEventType.UploadProgress){
         this.progress = Math.round(100*event.loaded / event.total);

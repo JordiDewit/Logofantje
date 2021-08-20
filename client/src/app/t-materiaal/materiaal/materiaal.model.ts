@@ -1,3 +1,5 @@
+import { environment } from "src/environments/environment";
+
 export interface MateriaalJson{
     id: number;
     naam: string;
@@ -73,7 +75,7 @@ export class Materiaal {
             };  
         }
           public onClickDownloadPdf(){
-            const source = `https://localhost:5001/${this._pdf}`;
+            const source = `https://logofantjeapi.azurewebsites.net/${this._pdf}`;
             console.log(source);
             const link = document.createElement("a");
             link.href = source;

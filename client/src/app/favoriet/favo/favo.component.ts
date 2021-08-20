@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter  } from '@angular/core';
 import { Materiaal } from 'src/app/t-materiaal/materiaal/materiaal.model';
+import { environment } from 'src/environments/environment';
 import { FavorietDataService } from '../favoriet-data.service';
 
 @Component({
@@ -24,6 +25,6 @@ export class FavoComponent implements OnInit {
   }
 
   public createImgPath(serverPath: string){
-    return `https://localhost:5001/${serverPath}`;
+    return `https://logofantjeapi.azurewebsites.net/${serverPath}`;
 }
 }

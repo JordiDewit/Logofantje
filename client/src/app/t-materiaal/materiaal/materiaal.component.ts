@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { FavorietDataService } from 'src/app/favoriet/favoriet-data.service';
 import { User } from 'src/app/favoriet/user.model';
 import { AuthenticationService } from 'src/app/user/authentication.service';
+import { environment } from 'src/environments/environment';
 import { MateriaalDataService } from '../materiaal-data.service';
 import { Materiaal } from './materiaal.model';
 @Component({
@@ -55,6 +56,6 @@ export class MateriaalComponent implements OnInit {
     this.deleteConfirmed.emit(this.deleteMessage);
   }
   public createImgPath(serverPath: string){
-    return `https://localhost:5001/${serverPath}`;
+    return `https://logofantjeapi.azurewebsites.net/${serverPath}`;
 }
 }

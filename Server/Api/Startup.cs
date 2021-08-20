@@ -28,6 +28,7 @@ namespace Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -82,7 +83,6 @@ namespace Api
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(x =>
             {
-                x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -121,7 +121,7 @@ namespace Api
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseHttpsRedirection();
+            
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions
             {
@@ -129,7 +129,7 @@ namespace Api
                 RequestPath = new PathString("/Resources")
             });
 
-            
+            app.UseHttpsRedirection();
             app.UseOpenApi();
             app.UseSwaggerUi3();
 
